@@ -34,11 +34,10 @@
 .nav ul{
 	height: 60px;
 	line-height: 60px;
-	display: inline-block;
 	list-style: none;
+	margin-right: 120px;
+	margin-left: 600px;
 	position: relative;
-	left: 45%;
-	width: 40%;
 }
 .nav ul li{
 	width: 15%;
@@ -77,8 +76,9 @@
 	color: #F04C57;
 	font-size: 14px;
 	float: right;
+	width: 100px;
 	position: relative;
-	right: 10%;
+	cursor: pointer;
 }
 .nav .login span{
 	margin-left: 8px;
@@ -91,7 +91,7 @@
 	left: 10%;
 	transition: width 0.3s ease-in-out;
 }
-.nav .login span:hover~.move{
+.nav .login:hover .move{
 	width: 50px;
 }
 
