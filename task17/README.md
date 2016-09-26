@@ -1,4 +1,4 @@
-**学习到的知识点：**
+**学习到的知识点：[demo](https://kad0108.github.io/IFE/task17)**
 
 * js对象的遍历for...in
 * select.value可以直接拿到下拉框的选中值

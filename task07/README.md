@@ -1,4 +1,4 @@
-**学习到的知识点：**
+**学习到的知识点：[demo](https://kad0108.github.io/IFE/task07)**
 
 * 标注工具MarkMan
 * 导航栏鼠标移动上去时底部边栏滑动效果，通过控制一个空元素的left加上transition实现。
