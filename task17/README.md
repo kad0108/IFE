@@ -1,3 +1,5 @@
+##[demo](https://kad0108.github.io/IFE/task17)
+
 ##任务描述
 
 * 参考以下示例代码，原始数据包含几个城市的空气质量指数数据
@@ -13,7 +15,7 @@
 * 鼠标移动到柱状图的某个柱子时，用title属性提示这个柱子的具体日期和数据
 
 
-##知识点：[demo](https://kad0108.github.io/IFE/task17)
+##知识点
 
 * js对象的遍历for...in
 * select.value可以直接拿到下拉框的选中值
