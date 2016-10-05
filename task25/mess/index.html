@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IFE Task25</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../css/iconfont.css">
+</head>
+<body>
+	<fieldset class="container">
+		<legend>Tree Component</legend>
+		<div>
+			<input type="text" id="text">
+			<button type="button" id="search">Search</button>
+			<button type="button" id="reset">Reset</button>
+		</div>
+		<p id="result"></p>
+		
+		<div id="root" class="root">
+			<div class="item head">
+				<i class="iconfont" data-btn="close">&#xe60c;</i>
+				<span class="name">Harry Potter</span>
+				<i class="iconfont add" data-btn="add">&#xe600;</i>
+			</div>
+			<div class="root">
+				<div class="item head">
+					<i class="iconfont" data-btn="close"></i>
+					<span class="name">Harry Potter and the Philosopher's Stone</span>
+					<i class="iconfont add" data-btn="add">&#xe600;</i>
+					<i class="iconfont del" data-btn="del">&#xe608;</i>
+					<i class="iconfont rename" data-btn="rename">&#xe604;</i>
+				</div>
+			</div>
+			<div class="root">
+				<div class="item head">
+					<i class="iconfont" data-btn="close"></i>
+					<span class="name">Harry Potter and the Chamber of Secrets</span>
+					<i class="iconfont add" data-btn="add">&#xe600;</i>
+					<i class="iconfont del" data-btn="del">&#xe608;</i>
+					<i class="iconfont rename" data-btn="rename">&#xe604;</i>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+
+	<!-- <i class="iconfont">&#xe60b;展开</i>
+	<i class="iconfont">&#xe60c;折叠</i>
+	<i class="iconfont">&#xe600;添加</i>
+	<i class="iconfont">&#xe608;删除</i>
+	<i class="iconfont">&#xe604;重命名</i> -->
+	<script src="../../base.js"></script>
+	<script src="task.js"></script>
+</body>
+</html>

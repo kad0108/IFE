@@ -1,0 +1,60 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "Microsoft YaHei";
+	box-sizing: border-box;
+}
+
+.container{
+	width: 600px;
+	margin: 20px auto;
+	padding: 20px;
+}
+button{
+	margin: 0 10px;
+	padding: 0 5px;
+	cursor: pointer;
+}
+p{
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	cursor: default;
+}
+.root{
+	user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select:none;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
+	padding-left: 25px;
+}
+.item{
+	margin: 5px 20px;
+	cursor: default;
+}
+.head:hover>.add, .head:hover>.del, .head:hover>.rename{
+	display: inline;
+}
+.item .name{
+	cursor: pointer;
+	margin-right: 10px;
+}
+.item i{
+	cursor: pointer;
+	margin-right: 5px;
+}
+.add, .del, .rename{
+	display: none;
+}
+.iconfont:hover, .name:hover{
+	color: blue;
+}
+.hide{
+	display: none;
+}
+.search{
+	color: red;
+	font-weight: bold;
+}
