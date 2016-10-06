@@ -14,16 +14,9 @@
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
-.icon-add:before { content: "\e605"; }
-.icon-add1:before { content: "\e609"; }
-.icon-miaojieadd:before { content: "\e600"; }
-.icon-miaojiesub:before { content: "\e601"; }
-.icon-add2:before { content: "\e606"; }
-.icon-unie047:before { content: "\e60b"; }
-.icon-unie048:before { content: "\e60c"; }
-.icon-add3:before { content: "\e607"; }
-.icon-miaojieselleradd:before { content: "\e602"; }
-.icon-miaojiesellerdelete:before { content: "\e603"; }
-.icon-add4:before { content: "\e60a"; }
+
+
+.icon-add:before { content: "\e600"; }
+.icon-sub:before { content: "\e601"; }
 .icon-rename:before { content: "\e604"; }
 .icon-del:before { content: "\e608"; }

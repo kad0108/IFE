@@ -1,0 +1,84 @@
+
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "Microsoft YaHei";
+	box-sizing: border-box;
+}
+
+.container{
+	width: 600px;
+	margin: 20px auto;
+	padding: 20px;
+}
+button{
+	margin: 0 10px;
+	padding: 0 5px;
+	cursor: pointer;
+}
+p{
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	cursor: default;
+}
+.root{
+	user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select:none;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
+	padding-left: 25px;
+	color: #6898c2;
+}
+.head{
+	margin: 5px 20px;
+	cursor: default;
+}
+.head .name{
+	cursor: pointer;
+	margin-right: 10px;
+}
+.head .iconfont{
+	/*display: none;*/
+	visibility: hidden;
+	cursor: pointer;
+	margin-right: 8px;
+}
+.head .arrow{
+	display: inline-block;
+	margin-right: 5px;
+	width: 10px;
+}
+.head:hover .iconfont{
+	/*display: inline-block;*/
+	visibility: visible;
+}
+.iconfont:hover, .name:hover{
+	color: blue;
+}
+.close{
+    width: 0;
+    height: 0;
+    border-left: 10px solid #6898c2;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    cursor: pointer;
+}
+.open{
+    width: 0;
+    height: 0;
+    border-top: 10px solid #6898c2;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    cursor: pointer;
+}
+
+.hide{
+	display: none;
+}
+.find{
+	color: red;
+	font-weight: bold;
+}
