@@ -62,11 +62,18 @@ addEvent(root.ele, 'click', function(event){
 		return tag.parentNode.parentNode.TreeNode;
 	}
 })
+
 //查找节点
 addEvent($('search'), 'click', function(event){
 	var key = $('key').value;
 	// var data = dfsSearch(root);
 	var data = bfsSearch(root);
+
+	//取消上次查询结果
+	for(var i = 0; i < data.length; i++){
+		var head = data[i].ele.getElementsByClassName('head')[0];
+		head.className = head.className.replace(/ find/, '');
+	}
 
 	var result = [];
 	if(isValid(key)){
@@ -79,23 +86,15 @@ addEvent($('search'), 'click', function(event){
 		//结果高亮显示
 		for(var i = 0; i < result.length; i++){
 			var node = result[i];
-			node.ele.className += ' find';
+			node.ele.getElementsByClassName('head')[0].className += ' find';
 			while(node.parent != null){
 				node.parent.openNodeList();
 				node = node.parent;
 			}
 		}
 		$('res').innerHTML = 'find ' + result.length + ' results';
-	}
-})
-//重置查找结果
-addEvent($('reset'), 'click', function(event){
-	$('key').value = '';
-	$('res').innerHTML = '';
-	var data = dfsSearch(root);
-	//取消高亮
-	for(var i = 0; i < data.length; i++){
-		data[i].ele.className = data[i].ele.className.replace(/ find/, '');
+	}else{
+		$('res').innerHTML = 'Invalid key words.';
 	}
 })
 
