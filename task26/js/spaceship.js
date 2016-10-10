@@ -19,7 +19,7 @@ function SpaceShip(orbit, ele){
 		//当前能源
 		_energy: 100,
 		//速度
-		_speed: 1,
+		_speed: 2,
 		//旋转角度
 		_deg: 0,
 		//动力系统
@@ -54,8 +54,21 @@ function SpaceShip(orbit, ele){
 			}
 		},
 		//信号系统
-		signal: {
-
+		signal: function(meg){
+			//验证消息是否是发给自己的
+			if(meg.id != obj._orbit) return;
+			//执行命令
+			switch(meg.command){
+				case 'start':
+					obj.drive.start();
+					break;
+				case 'stop':
+					obj.drive.stop();
+					break;
+				case 'destory':
+					obj.destory();
+					break;
+			}
 		},
 		//自爆系统
 		destory: function(){
@@ -64,3 +77,4 @@ function SpaceShip(orbit, ele){
 	};
 	return obj;
 }
+var spaceShip = new SpaceShip();

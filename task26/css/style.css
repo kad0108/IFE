@@ -16,25 +16,42 @@ html, body{
 	height: 100px;
 	position: absolute;
 	left: 50%;
-	top: 50%;
+	top: 38%;
 	margin-left: -50px;
 	margin-top: -50px;
 	border-radius: 50%;
 	background-color: blue;
 }
-
 .orbit{
 	position: absolute;
 	left: 50%;
-	top: 50%;
+	top: 38%;
 	border: 2px solid #555;
+	border-radius: 50%;
 }
 #orbit0{
 	width: 200px;
 	height: 200px;
 	margin-left: -100px;
 	margin-top: -100px;
-	border-radius: 50%;
+}
+#orbit1{
+	width: 300px;
+	height: 300px;
+	margin-left: -150px;
+	margin-top: -150px;
+}
+#orbit2{
+	width: 400px;
+	height: 400px;
+	margin-left: -200px;
+	margin-top: -200px;
+}
+#orbit3{
+	width: 500px;
+	height: 500px;
+	margin-left: -250px;
+	margin-top: -250px;
 }
 
 .spaceship{
@@ -46,7 +63,7 @@ html, body{
 	line-height: 30px;
 	position: absolute;
 	left: 50%;
-	top: 50%;
+	top: 38%;
 	transform: rotate(0deg);
 	border-radius: 20px;
 	overflow: hidden;
@@ -66,13 +83,28 @@ html, body{
 	margin-left: -40px;
 	transform-origin: center 110px;
 }
+#spaceship1{
+	margin-top: -160px;
+	margin-left: -40px;
+	transform-origin: center 160px;
+}
+#spaceship2{
+	margin-top: -210px;
+	margin-left: -40px;
+	transform-origin: center 210px;
+}
+#spaceship3{
+	margin-top: -260px;
+	margin-left: -40px;
+	transform-origin: center 260px;
+}
 
 .wrapper{
 	display: flex;
 	position: relative;
 	margin: 0 auto;
 	top: 100%;
-	margin-top: -200px;
+	margin-top: -208px;
 	width: 90%;
 	height: 200px;
 	border: 2px dotted #3b3f58;
@@ -80,13 +112,32 @@ html, body{
 	padding: 5px 10px;
 }
 #control{
-	width: 48%;
 	color: white;
+	width: 40%;
+	line-height: 30px;
 }
 #control button{
 	padding: 3px 10px;
 	cursor: pointer;
-	border-radius: 3px;
-	border: 0;
+	border-radius: 4px;
 	text-align: center;
+	background-color: #428bca;
+	border: 1px solid transparent;
+	color: #fff;
+	margin-left: 10px;
+}
+#control button[disabled]{
+	opacity: .5;
+}
+
+#console{
+	width: 58%;
+	color: #d9e6cd;
+	padding: 3px 10px;
+	border-left: 2px dotted #3b3f58;
+	font-size: 12px;
+	overflow: auto;
+}
+#console .error{
+	color: #32a39d;
 }

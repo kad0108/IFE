@@ -3,27 +3,32 @@
 <head>
 	<meta charset="UTF-8">
 	<title>行星与飞船</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<!-- 行星 -->
 	<div id="commander"></div>
 	<!-- 轨道 -->
 	<div id="orbit0" class="orbit"></div>
+	<div id="orbit1" class="orbit"></div>
+	<div id="orbit2" class="orbit"></div>
+	<div id="orbit3" class="orbit"></div>
 	<!-- 飞船 -->
 	<div class="wrapper">
 		<!-- 控制面板 -->
 		<div id="control">
-			<div data-id="0">
-				<span>对1号飞船下达指令：</span>
-				<button type="button" data-type="build" data-status="build">创建飞船</button>
-				<button type="button" data-type="drive" disabled="disabled" data-status="start">飞行</button>
-			</div>
-		</div>	
+			<button type="button" data-status='add'>添加新的飞船</button>
+		</div>
+		<!-- 控制台 -->
+		<div id="console">
+			
+		</div>
 	</div>
 	
 	<script src="../base.js"></script>
-	<script src="spaceship.js"></script>
-	<script src="commander.js"></script>
+	<script src="js/spaceship.js"></script>
+	<script src="js/mediator.js"></script>
+	<script src="js/commander.js"></script>
+	<script src="js/app.js"></script>
 </body>
 </html>

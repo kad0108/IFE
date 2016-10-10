@@ -37,7 +37,8 @@
 
 ##知识点
 
-* transform-origin属性用来设置转换元素的旋转中心，相对于某个圆心运动的设置![这是自己的理解](transform-origin.png)
+* transform-origin属性用来设置转换元素的旋转中心，相对于某个圆心运动的设置![这是自己的理解](css/transform-origin.png)
 * margin:0 auto;元素居中失效原因：必须给居中元素设置宽度；元素不能脱离文档流。
 * 通过setInterval不停的判断飞船的状态来进行相应的操作。
-* nextSibling属性返回指定节点之后紧跟的节点包括text节点，nextElementSibling
+* nextSibling属性返回指定节点之后紧跟的节点包括text节点，nextElementSibling返回之后的dom节点。
+* 用Math.random()模拟丢包
