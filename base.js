@@ -11,3 +11,11 @@ function addEvent(element, eventName, listener) {
         element["on" + eventName] = listener;
     }
 }
+
+function removeEvent(element, eventName, listener){
+  if(element.removeEventListener){
+    element.removeEventListener(eventName, listener, false);
+  }else if(element.detachEvent){
+    element.detachEvent("on" + eventName, listener);
+  }
+}

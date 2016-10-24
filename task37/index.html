@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浮出层</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<button type="button" id="open">点击打开浮出层</button>
+		<div class="content">
+			<img src="harry.jpg" alt="">
+			<img src="harry.jpg" alt="">
+			<img src="harry.jpg" alt="">
+			<img src="harry.jpg" alt="">
+		</div>
+
+		<div class="modal hide" id="modal">
+			<!-- 遮罩 -->
+			<div class="mask"></div>
+			<!-- 对话框 -->
+			<div class="dialog">
+				<div class="header">这是一个浮出层</div>
+				<div class="body">这是一个浮出层</div>
+				<button type="button" class="footer">确定</button>
+			</div>
+		</div>
+	</div>
+	
+	<script src="../base.js"></script>
+	<script src="task.js"></script>
+</body>
+</html>
