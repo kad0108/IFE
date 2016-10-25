@@ -20,5 +20,6 @@
 
 1. ifdrag变量在mousedown时标记，在mousemove时判断是不是在鼠标按下时move，然后在mouseup时取消标记。
 2. 不开标记变量，但是在mouseup时要给mousemove事件解绑
+
 * 同时学习了Html5的拖放API [总结看这里](https://github.com/kad0108/Html5/tree/gh-pages/drag)
 
