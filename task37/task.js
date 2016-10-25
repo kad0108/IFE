@@ -1,17 +1,20 @@
+/*
+* 使用mousedown、mousemove、mouseup鼠标事件实现拖拽功能
+*/
 function Modal(ele){
 	this.ele = ele;
 }
 Modal.prototype = {
 	constructor: Modal,
-
+	//显示
 	show: function(){
 		this.ele.className = this.ele.className.replace(/ hide/, '');
 	},
-
+	//隐藏
 	hide: function(){
 		this.ele.className += ' hide';
 	},
-
+	//拖拽
 	drag: function(){
 		var isMove = false;
 		var dialog = this.ele.getElementsByClassName('dialog')[0];
@@ -43,7 +46,28 @@ Modal.prototype = {
 		// })
 
 	},
-	
+	//调整大小
+	resize: function(){
+		var btn = this.ele.getElementsByClassName('resize')[0];
+		var dialog = this.ele.getElementsByClassName('dialog')[0];
+		var isResize = false;
+		addEvent(btn, 'mousedown', function(event){
+			isResize = true;
+			var x = event.clientX - dialog.offsetWidth;//计算dialog左上角坐标
+			var y = event.clientY - dialog.offsetHeight;
+
+			addEvent(document, 'mousemove', function(event){
+				if(isResize){
+					dialog.style.width = event.clientX - x + 'px';
+					dialog.style.height = event.clientY - y + 'px';
+				}
+			})
+			addEvent(document, 'mouseup', function(event){
+				isResize = false;
+			})
+		})
+	},
+	// 监听事件
 	watch: function(){
 		var self = this;
 		addEvent(this.ele.getElementsByClassName('mask')[0], 'click', function(event){
@@ -55,11 +79,13 @@ Modal.prototype = {
 			self.hide();
 		});
 		this.drag();
+		this.resize();
 	}
 }
 
 var modal = new Modal($('modal'));
 modal.watch();
+modal.show();
 addEvent($('open'), 'click', function(event){
 	modal.show();
 });
