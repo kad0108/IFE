@@ -17,8 +17,8 @@ Modal.prototype = {
 	//拖拽
 	drag: function(){
 		var isMove = false;
-		var dialog = this.ele.getElementsByClassName('dialog')[0];
-		var header = this.ele.getElementsByClassName('header')[0];
+		var dialog = $('.dialog', this.ele)[0];
+		var header = $('.header', this.ele)[0];
 		addEvent(header, 'mousedown', function(event){
 			var x = event.clientX - dialog.offsetLeft;//光标相对dialog左上角的横轴相对位置
 			var y = event.clientY - dialog.offsetTop;//纵轴相对位置
@@ -48,8 +48,8 @@ Modal.prototype = {
 	},
 	//调整大小
 	resize: function(){
-		var btn = this.ele.getElementsByClassName('resize')[0];
-		var dialog = this.ele.getElementsByClassName('dialog')[0];
+		var btn = $('.resize', this.ele)[0];
+		var dialog = $('.dialog', this.ele)[0];
 		var isResize = false;
 		addEvent(btn, 'mousedown', function(event){
 			isResize = true;
@@ -70,11 +70,11 @@ Modal.prototype = {
 	// 监听事件
 	watch: function(){
 		var self = this;
-		addEvent(this.ele.getElementsByClassName('mask')[0], 'click', function(event){
+		addEvent($('.mask', this.ele)[0], 'click', function(event){
 			event.stopPropagation();
 			self.hide();
 		});
-		addEvent(this.ele.getElementsByClassName('footer')[0], 'click', function(event){
+		addEvent($('.footer', this.ele)[0], 'click', function(event){
 			event.stopPropagation();
 			self.hide();
 		});
@@ -83,10 +83,10 @@ Modal.prototype = {
 	}
 }
 
-var modal = new Modal($('modal'));
+var modal = new Modal($('#modal'));
 modal.watch();
 modal.show();
-addEvent($('open'), 'click', function(event){
+addEvent($('#open'), 'click', function(event){
 	modal.show();
 });
 
