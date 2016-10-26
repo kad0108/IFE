@@ -63,17 +63,17 @@ TreeNode.prototype.delNode = function(){
 	}
 	//节点没有子节点时去掉箭头
 	if(this.parent.childs.length == 0){
-		this.parent.ele.getElementsByClassName('arrow')[0].className = 'arrow';
+		$('.arrow', this.parent.ele)[0].className = 'arrow';
 	}
 }
 //节点重命名
 TreeNode.prototype.renameNode = function(text){
 	this.name = text;
-	this.ele.getElementsByClassName('name')[0].innerHTML = text;
+	$('.name', this.ele)[0].innerHTML = text;
 }
 //展开节点
 TreeNode.prototype.openNodeList = function(){
-	var arrow = this.ele.getElementsByClassName('arrow')[0];
+	var arrow = $('.arrow', this.ele)[0];
 	if(arrow.className.indexOf('open') == -1){
 		arrow.className = arrow.className.replace(/ close/, '');
 		arrow.className += ' open';
@@ -87,7 +87,7 @@ TreeNode.prototype.openNodeList = function(){
 //折叠节点
 TreeNode.prototype.closeNodeList = function(){
 	if(this.childs.length != 0){
-		var arrow = this.ele.getElementsByClassName('arrow')[0];
+		var arrow = $('.arrow', this.ele)[0];
 		if(arrow.className.indexOf('close') == -1){
 			arrow.className = arrow.className.replace(/ open/, '');
 			arrow.className += ' close';
