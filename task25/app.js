@@ -9,7 +9,7 @@ var root = new TreeNode({
 	parent: null,
 	childs: [],
 	name: 'Front-End Engineer',
-	ele: $('root'),
+	ele: $('#root'),
 });
 root.addChild('Tech').addChild('Algorithm').addChild('Basics');
 root.childs[0].addChild('Html5').addChild('CSS3').addChild('JavaScript');
@@ -64,18 +64,19 @@ addEvent(root.ele, 'click', function(event){
 })
 
 //查找节点
-addEvent($('search'), 'click', function(event){
-	var key = $('key').value;
+addEvent($('#search'), 'click', function(event){
+	var key = $('#key').value;
 	// var data = dfsSearch(root);
 	var data = bfsSearch(root);
 
 	//取消上次查询结果
 	for(var i = 0; i < data.length; i++){
-		var head = data[i].ele.getElementsByClassName('head')[0];
+		var head = $('.head', data[i].ele)[0];
 		head.className = head.className.replace(/ find/, '');
 	}
 
 	var result = [];
+	var p = $('#res');
 	if(isValid(key)){
 		key = key.trim().toLowerCase();
 		for(var i = 0; i < data.length; i++){
@@ -86,15 +87,15 @@ addEvent($('search'), 'click', function(event){
 		//结果高亮显示
 		for(var i = 0; i < result.length; i++){
 			var node = result[i];
-			node.ele.getElementsByClassName('head')[0].className += ' find';
+			$('.head', node.ele)[0].className += ' find';
 			while(node.parent != null){
 				node.parent.openNodeList();
 				node = node.parent;
 			}
 		}
-		$('res').innerHTML = 'find ' + result.length + ' results';
+		p.innerHTML = 'find ' + result.length + ' results';
 	}else{
-		$('res').innerHTML = 'Invalid key words.';
+		p.innerHTML = 'Invalid key words.';
 	}
 })
 
