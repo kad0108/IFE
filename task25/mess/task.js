@@ -13,7 +13,7 @@ var icon = {
 	rename: '&#xe604;',
 }
 
-addEvent($('root'), 'click', function(event){
+addEvent($('#root'), 'click', function(event){
 	var event = event || window.event;
 	event.stopPropagation();
 	var target = event.target || event.srcElement;
@@ -94,15 +94,15 @@ addEvent($('root'), 'click', function(event){
 	}
 })
 
-addEvent($('search'), 'click', function(event){
-	var text =  $('text').value;
+addEvent($('#search'), 'click', function(event){
+	var text =  $('#text').value;
 	var data = [];
 	(function dfs(node){
 		data.push(node.children[0]);
 		for(var i = 1; i < node.children.length; i++){
 			if(node.children[i]) dfs(node.children[i]);
 		}
-	})($('root'));
+	})($('#root'));
 	var cot = 0;
 	//查询结果高亮显示，并且上层文件展开
 	for(var i = 0; i < data.length; i++){
@@ -112,7 +112,7 @@ addEvent($('search'), 'click', function(event){
 
 			data[i].children[1].className += ' search';
 			var node = data[i].parentNode.parentNode;
-			while(node != $('root')){
+			while(node != $('#root')){
 				var target = node.children[0].children[0];
 				if(target.dataset.btn === 'open'){
 					target.dataset.btn = 'close';
@@ -135,19 +135,19 @@ addEvent($('search'), 'click', function(event){
 			}
 		}
 	}
-	$('result').innerHTML = 'find ' + cot + ' results';
+	$('#result').innerHTML = 'find ' + cot + ' results';
 })
 
-addEvent($('reset'), 'click', function(event){
-	$('text').value = '';
-	$('result').innerHTML = '';
+addEvent($('#reset'), 'click', function(event){
+	$('#text').value = '';
+	$('#result').innerHTML = '';
 	var data = [];
 	(function dfs(node){
 		data.push(node.children[0]);
 		for(var i = 1; i < node.children.length; i++){
 			if(node.children[i]) dfs(node.children[i]);
 		}
-	})($('root'));
+	})($('#root'));
 	//取消高亮
 	for(var i = 0; i < data.length; i++){
 		data[i].children[1].className = data[i].children[1].className.replace(/search/i, '');
