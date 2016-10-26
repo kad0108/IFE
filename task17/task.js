@@ -42,10 +42,10 @@ var aqiSourceData = {
 // 用于渲染图表的数据
 var chartData = {};
 
-var time = $("form-gra-time");
-var radio = document.getElementsByName("gra-time");
-var city = $("city-select");
-var wrap = $("aqi-chart-wrap");
+var time = $("#form-gra-time");
+var radio = $("input[name='gra-time']");//getElementsByName
+var city = $("#city-select");
+var wrap = $("#aqi-chart-wrap");
 
 // 记录当前页面的表单选项
 var pageState = {
