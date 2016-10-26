@@ -36,7 +36,7 @@ var commander = {
 		});
 	},
 	//控制面板
-	control: $('control'),
+	control: $('#control'),
 	//控制板飞船个数
 	shipCot: 0,
 	//添加对新的飞船的指令

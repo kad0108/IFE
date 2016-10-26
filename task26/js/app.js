@@ -25,7 +25,7 @@ function getTime(){
 * @param meg 消息
 * @param type 消息类型
 */
-var consolePanel = $('console');
+var consolePanel = $('#console');
 function log(meg, type){
 	var p = document.createElement('p');
 	if(type) p.className = type;
