@@ -26,4 +26,4 @@
 * 遇到了如何实现简易jquery取dom元素，[具体看这里](http://www.zhangxinxu.com/wordpress/2013/07/jquery-%E5%8E%9F%E7%90%86-%E6%9C%BA%E5%88%B6/)，现在的知识储备暂时理解起来还比较费劲，留着看。
 * event.stopPropagation()阻止事件冒泡，event.preventDefault()阻止事件默认行为。
 * 想要点击文字选中对应的单选按钮radio：将radio和文本内容放入label标签内，for属性绑定radio的id即可实现。
-* ???很奇怪啊，动态渲染的选时间段的面板上两个button用querySelectorAll取不到
+* 时间段选择这里，我没有加时间跨度限制。
