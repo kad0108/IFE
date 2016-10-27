@@ -205,6 +205,7 @@ Calendar.prototype = {
 			radios[i].onchange = function(){
 				self.type = this.id;
 				self.render();
+				self.show();
 			}
 		}
 		
