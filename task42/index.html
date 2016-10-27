@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>日历组件</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="calendar">
+		<input type="text" class="input" autofocus>
+		<p>
+			<label for="single"><input type="radio" name="type" id="single" checked>&nbsp;single</label>
+			<label for="period"><input type="radio" name="type" id="period">&nbsp;period</label>
+		</p>
+		<div class="calendar">
+			<div class="header">
+				<span class="btn pre"></span>
+				<select class="year"></select>
+				<select class="month"></select>
+				<span class="btn next"></span>
+			</div>
+			<div class="week"></div>
+			<div class="day">
+				<ul></ul>
+			</div>
+		</div>
+	</div>
+
+	<script src="../base.js"></script>
+	<script src="task.js"></script>
+</body>
+</html>
