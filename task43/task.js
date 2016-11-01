@@ -126,11 +126,11 @@ Gallery.prototype.size6 = function(){
 		{
 			width: width,
 			height: height,
-			// right: true,
 		},
 		{
 			width: width,
 			height: height,
+			right: true,
 		},
 		{
 			width: width,
