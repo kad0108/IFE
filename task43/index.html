@@ -22,14 +22,14 @@
 	<script src="../base.js"></script>
 	<script src="task.js"></script>
 	<script>
-		// (function(){
-			var pics = [];
+		(function(){
+			var pics = [];//图片url
 			for(var i = 1; i <= 21; i++){
 				pics.push("image/" + i + '.jpg');
 			}
 			function loadImage(pics, callback){
-				var images = [];
-				var cot = 6;
+				var images = [];//HTMLImageElement
+				var cot = 21;//当21张图片都加载完执行回调函数
 				for(var i = 0; i < pics.length; i++){
 					images[i] = new Image();
 					images[i].src = pics[i];
@@ -51,7 +51,7 @@
 				new Gallery($('#gallery6'), images.slice(15, 21));
 			})
 			
-		// })();
+		})();
 	</script>
 </body>
 </html>
