@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试clip-path</title>
+	<style>
+		.test{
+			width: 80px;
+			height: 80px;
+			background-color: purple;
+			clip-path: polygon(0% 0%, 100% 0%, 50% 100%, 0% 100%);
+			-webkit-clip-path: polygon(0% 0%, 100% 0%, 50% 100%, 0% 100%);
+			clip-path: url("#clip");
+		}
+	</style>
+</head>
+<body>
+	<!-- 测试clip-path在firefox下的兼容性 -->
+	<div class="test"></div>
+
+	<svg width="0" height="0"  version="1.1" xmlns="http://www.w3.org/2000/svg">
+		<clipPath id="clip" clipPathUnits="objectBoundingBox">
+			<polygon points="0 0, 1 0, 0.5 1, 0 1"></polygon>
+		</clipPath>
+	</svg>
+</body>
+</html>
