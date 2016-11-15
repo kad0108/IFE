@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>瀑布流布局</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/loading.css">
+	<link rel="stylesheet" href="css/modal.css">
+</head>
+<body>
+	<div id="gallery"></div>
+	<div class="bounce" id="bounce">
+		<span></span>
+		<span></span>
+	</div>
+	
+	<script src="../base.js"></script>
+	<script src="js/500px.js"></script>
+	<script src="js/util.js"></script>
+	<script src="js/waterfall.js"></script>
+	<script src="js/modal.js"></script>
+	<script src="js/app.js"></script>
+	<script>
+		_500px.init({
+			sdk_key: 'b68e60cff4c929bedea36ca978830c5caca790c3'
+		});
+
+		var col = 2;
+		if(innerWidth > 1200) col = 5;
+		else if(innerWidth > 992) col = 4;
+		else if(innerWidth > 768) col = 3;
+
+		new Application(new Waterfall($('#gallery'), col));
+
+		
+
+	</script>
+</body>
+</html>
