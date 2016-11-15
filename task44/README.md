@@ -1,7 +1,10 @@
 ##任务描述 [demo](https://kad0108.github.io/IFE/task44)
 
-### 实现向第三方图片源500px请求图片资源，会出现每次刷新图片不同的情况，考虑到500px是国外服务器也会出现图片加载失败的情况。同一张图片请求了两个image_size的url，一个像素小用来加载瀑布流减少缓冲时间，一个是高清图用来全屏显示。实现分为三个模块：Waterfall实现瀑布流布局，Modal是大图显示，Application应用层对各模块进行组织以及页面逻辑的实现。
+#### 实现向第三方图片源500px请求图片资源，会出现每次刷新图片不同的情况，考虑到500px是国外服务器也会出现图片加载失败的情况。同一张图片请求了两个image_size的url，一个像素小用来加载瀑布流减少缓冲时间，一个是高清图用来全屏显示。
 
+实现分为三个模块：Waterfall实现瀑布流布局，Modal是大图显示，Application应用层对各模块进行组织以及页面逻辑的实现。
+
+<br/>
 * 参考如下设计图，使用JavaScript、CSS，实现如图的瀑布布局
 * ![设计图](http://7xrp04.com1.z0.glb.clouddn.com/task_3_44_1.png)
 * 实现封装为一个JavaScript的库
@@ -15,7 +18,7 @@
 * [Jquery.waterfall demo](http://dfcreative.github.io/projects/waterfall/)
 * [PLACEHOLD.IT 用来占位的不同大小的图片生成工具](https://placehold.it/)
 * [500px API](https://github.com/500px/api-documentation)
-* [image_size](https://github.com/500px/api-documentation/blob/master/basics/formats_and_terms.md#image-urls-and-image-sizes)
+* [500px image_size设置](https://github.com/500px/api-documentation/blob/master/basics/formats_and_terms.md#image-urls-and-image-sizes)
 
 ##知识点
 
