@@ -28,6 +28,7 @@ Application.prototype.loaded = function(photos){
 //滚动加载
 Application.prototype.scroll = function(){
 	var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+	//滚动走的高度＋浏览器窗口高度 >= body页面高度(其实就是高度最大的那一栏的高度) 时请求资源
 	if(scrollTop + innerHeight >= document.body.clientHeight && !this.loading){
 		this.load();
 	}
