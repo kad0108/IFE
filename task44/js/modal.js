@@ -45,10 +45,12 @@ Modal.prototype.show = function(url, radio){
 
 		//因为弹出层显示时要禁止页面向下滑动，所以要对两种尺寸的图片分别处理
 		var windowRadio = innerWidth / innerHeight;
-		if(windowRadio > radio){//landscape风景图
+		if(windowRadio > radio){//portrait人像图
 			this.$container.style.width = (innerHeight - 100) * radio + 'px';
-		}else{//portrait人像图
+		}else{//landscape风景图
 			this.$container.style.width = (innerWidth - 100) + 'px';
+			//因为图片可能会过于扁，不处在屏幕正中间没法覆盖loading效果
+			this.$container.style.marginTop = (innerHeight - (innerWidth - 100) / radio) / 2 + 'px'
 		}
 	}
 }
