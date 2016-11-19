@@ -1,0 +1,35 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "Microsoft YaHei";
+	box-sizing: border-box;
+}
+body{
+	width: 100%;
+	overflow-y: scrol;
+}
+#gallery {
+  margin-top: 8px;
+}
+.gallery-row{
+	margin-bottom: 8px;
+	overflow: hidden;
+	white-space: nowrap;
+	padding-right: 8px;
+}
+.gallery-item{
+	height: 100%;
+	display: inline-block;
+	margin-left: 8px;
+}
+img{
+	object-fit: cover;
+	height: 100%;
+	cursor: zoom-in;
+}
+.noscroll{
+	overflow: hidden;
+}
+.hide{
+	display: none;
+}
