@@ -42,6 +42,8 @@ Bucket.prototype.append = function(photos){
 			html += '<div class="gallery-item">' + 
 						'<img title=' + photo.name + ' data-radio=' + photo.aspect_ratio +
 							 ' data-large=' + photo.large_url + ' src=' + photo.image_url + '>' + 
+						'<div class="gallery-infor">' + photo.name + 
+						'</div>' + 
 					'</div>';
 			return html;
 		}, '');

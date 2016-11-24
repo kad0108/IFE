@@ -21,6 +21,22 @@ body{
 	height: 100%;
 	display: inline-block;
 	margin-left: 8px;
+	position: relative;
+}
+.gallery-infor{
+	width: 100%;
+	background-image: linear-gradient(transparent 77%, rgba(0, 0, 0, 0.33));
+	color: #fff;
+	position: absolute;
+	bottom: 0;
+	display: none;
+	padding: 10px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: default;
+}
+.gallery-item:hover .gallery-infor{
+	display: block;
 }
 img{
 	object-fit: cover;
