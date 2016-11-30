@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单检验</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="form">
+		<div v-for="(item, index) in list">
+			<span>{{item.label}}</span>
+			<!-- v-model不支持动态type，不能bind type，用v-if -->
+			<input v-if="item.type == 'text'" type="text" v-bind:name="item.name" v-on:focus="showHint(index)" v-on:blur="validate(index)" v-model="item.val" v-bind:class="item.cls">
+			<input v-else type="password" v-bind:name="item.name" v-on:focus="showHint(index)" v-on:blur="validate(index)" v-model="item.val" v-bind:class="item.cls">
+			<br>
+			<p v-bind:style="{color: item.color}">{{item.info}}</p>
+		</div>
+		<button v-on:click="submit">提交</button>
+	</div>
+
+	<script src="../base.js"></script>
+	<script src="../vue.js"></script>
+	<script src="task.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue</title>
+	<script src="../vue.js"></script>
+</head>
+<body>
+	<h1 style="color:purple">Grammer</h1>
+	<div id="app">
+		<!-- 渲染 -->
+		<p>{{message}}</p>
+		<!-- 绑定元素的title属性和vue的info -->
+		<p v-bind:title="info">Hover your mouse over me</p>
+		<!-- 条件：控制台修改app.seen=false，此元素消失 -->
+		<p v-if="seen">Now you see me</p>
+		<!-- 循环：渲染列表 -->
+		<ol>
+			<li v-for="item in list">{{item.text}}</li>
+		</ol>
+		<!-- 监听事件 -->
+		<p>{{message}}<button v-on:click="reverseMeg">Reverse Message</button></p>
+		<!-- 处理用户输入 -->
+		<p><input v-model="input"> {{input}}</p>
+		<!-- 组件系统 -->
+		<p>Component:</p>
+		<ol>
+			<!-- 将此元素的msg属性与item值绑定 -->
+			<child v-for="item in fatherList" v-bind:msg="item"></child>
+		</ol>
+		<my-component></my-component>
+	</div>
+	<script>
+		// 需要在初始化根实例之前先注册组件
+		// 全局注册
+		Vue.component("child", {
+			props: ['msg'],// 父组件数据传给子组件
+			template: '<li>{{msg.text}}</li>'
+		});
+		// 创建根实例，vue构造器
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: 'Hello Vue! ',
+				info: 'You loaded this page on ' + new Date(),
+				seen: true,
+				list: [
+					{text: 'Be Confident'},
+					{text: 'Be Happy'},
+					{text: 'Keep moving'},
+				],
+				input: 'Hello KAD! ',
+				fatherList: [
+					{text: 'LeetCode'},
+					{text: 'VueJS'},
+					{text: 'JQuery'},
+				],
+			},
+			// 局部注册
+			components: {
+				'my-component': {
+					template: '<p>A custom component!</p>'
+				}
+			},
+			methods: {
+				reverseMeg: function(){
+					this.message = this.message.split('').reverse().join('');
+				}
+			}
+		});
+	</script>
+
+	<h1 style="color:purple">Demo1</h1>
+	<div id="todo-list-example">
+		<input v-model="newTodoText" v-on:keyup.enter="addNewTodo" placeholder="Add a todo">
+		<ul>
+			<li is="todo-item" v-for="(todo, index) in todos" v-bind:title="todo" v-on:remove="todos.splice(index, 1)"></li>
+		</ul>
+	</div>
+	<script>
+		var demo1 = new Vue({
+			el: '#todo-list-example',
+			data: {
+				newTodoText: '',
+				todos: [
+					'Be confident.',
+					'Be happy',
+					'Relax',
+					'Keep moving'
+				]
+			},
+			methods: {
+				addNewTodo: function(){
+					this.todos.push(this.newTodoText);
+					this.newTodoText = '';
+				}
+			},
+			components: {
+				'todo-item': {
+					props: ['title'],
+					template: '<li>\
+								{{title}}\
+								<button v-on:click="$emit(\'remove\')">X</button>\
+							  </li>' 
+				}
+			}
+		});
+	</script>
+
+	<h1 style="color:purple">Demo2</h1>
+	<div id="check-example">
+		<!-- 勾选后的value绑定到同一个数组 -->
+		<input type="checkbox" id="jack"  value="Jack" v-model="checkedNames">
+		<label for="jack">Jack</label>
+		<input type="checkbox" id="john" value="John" v-model="checkedNames">
+		<label for="john">John</label>
+		<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+		<label for="mike">Mike</label>
+		<br>
+		<span>Checked names: {{checkedNames}}</span>
+	</div>	
+	<script>
+		var demo2 = new Vue({
+			el: '#check-example',
+			data: {
+				checkedNames: []
+			},
+		});
+	</script>
+
+	<h1 style="color:purple">Demo3</h1>
+	<div id="event-example">
+		<p>{{total}}</p>
+		<btn-counter v-on:increase="increaseTotal"></btn-counter>
+		<btn-counter v-on:increase="increaseTotal"></btn-counter>
+	</div>
+	<script>
+		// button的click事件 -> 执行increase方法 -> 触发v-on绑定的increase事件 -> 执行increaseTotal方法
+		var demo3 = new Vue({
+			el: '#event-example',
+			data: {
+				total: 0,
+			},
+			methods: {
+				increaseTotal: function(){
+					this.total += 1;
+				}
+			},
+			components: {
+				'btn-counter': {
+					template: '<button v-on:click="increase">{{cot}}</button>',
+					data: function(){
+						return {
+							cot: 0
+						}
+					},
+					methods: {
+						increase: function(){
+							this.cot += 1;
+							this.$emit('increase');
+						}
+					}
+				}
+			}
+		});
+	</script>
+
+</body>
+</html>

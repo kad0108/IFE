@@ -1,0 +1,55 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "Microsoft YaHei";
+	font-size: 1rem;
+	box-sizing: border-box;
+}
+#form{
+	margin: 0 20%;
+	margin-top: 100px;
+	min-width: 500px;
+	position: relative;
+}
+#form span{
+	display: inline-block;
+	text-align: right;
+	width: 100px;
+	margin-right: 1rem;
+}
+#form label{
+	margin-right: 1rem;
+}
+#form input{
+	height: 40px;
+	line-height: 40px;
+	width: 260px;
+	/*margin-right: 1rem;*/
+	padding-left: 5px;
+}
+#form button{
+	padding: 6px 20px;
+	background-color: #428bca;
+	border-radius: 5px;
+	color: white;
+	border: 0;
+	cursor: pointer;
+}
+#form button:hover{
+	background-color: #3071a9;
+}
+#form p{
+	margin-left: 120px;
+	height: 30px;
+	line-height: 30px;
+	/*color: red;*/
+}
+#form button{
+	margin-left: 300px;
+}
+.error{
+	border: 2px solid red;
+}
+.correct{
+	border: 2px solid lightgreen;
+}
