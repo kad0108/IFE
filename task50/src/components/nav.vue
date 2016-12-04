@@ -49,11 +49,13 @@ export default {
 	margin-left: 5%;
 	color: #fff;
 	font-size: 1rem;
+	font-weight: bold;
 	text-decoration: none;
 	width: 6rem;
 	height: 100%;
 	line-height: 3rem;
 	text-align: center;
+	text-shadow: 0 -.05rem .05rem rgba(0,0,0,.5);
 }
 .home:hover{
 	background-color: rgb(255, 140, 25);
