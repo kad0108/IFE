@@ -1,11 +1,6 @@
-# Task50
+# Task50 [demo](https://kad0108.github.io/IFE/task45)
 
 > A Vue.js project
-
-
-
-
-
 
 
 ## Vue+Webpack
@@ -184,7 +179,30 @@ Loaders是webpack中对各种格式的文件进行处理。eg: scss to css, es6 
 ## 知识点
 
 * let和const特性：块级作用域，不存在变量提升
+
 * 弹性盒子父元素设置```display: flex;-webkit-align-items: center;```，子元素y轴居中对齐
+
+* 在做问题复用这个功能时，再次遇到引用类型的拷贝，简单的复制会出现对一个问题做修改会同步到另一个复用的问题上，则需要进行对象的深拷贝。
+
+* create.vue中添加问题的type这儿本来想用v-for实现的，结果返回的icon代码字符串无法在html中正常解析，不知道怎么解决。。。
+
+* input的focus触发时，选中文本```onfocus="this.select()"```
+
+* ```Date.now()相当于new Date().getTime()```返回自1970年1月1日至今的毫秒数，```Date()```直接返回当前时间字符串
+
+* new Date(year, month, day)传入下个月的第0天就返回这个月的最后一天，也就是这个月总共的天数
+
+* Vue属性created在实例被创建完成之后调用，用来初始化数据
+
+* 子组件向父组件传递信息，通过$emit来触发父组件的某个事件，从而父组件去执行这个事件对应的方法
+
+* rem相对html/body的字体尺寸，1rem=16px
+
+* v-link是vue1.0的写法，vue2.0路由设置是<router-link>组件，可通过tag属性生成别的标签
+
+* 在一个VueComponent实例中，```this.$route```是路由信息；```this.$router```是对路由进行操作，编程式导航就需要使用router的实例方法。
+
+  ​
 
 
 

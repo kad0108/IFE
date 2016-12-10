@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App'
 import Create from './components/Create'
+import List from './components/List'
 
 Vue.use(VueRouter);
 
@@ -15,8 +16,11 @@ const Newbtn = {
 
 var router = new VueRouter({
 	routes: [
-		{path: '/', component: Newbtn },
-		{path: 'create', name: 'create', component: Create}
+		{path: '/', name: 'home', component: Newbtn },
+		{path: '/create', name: 'create', component: Create},
+		{path: '/list', name: 'list', component: List},
+		{path: '/edit/:id', name: 'edit', component: Create},
+		{path: '/fill/:id', name: 'fill', component: Create}
 	]
 })
 

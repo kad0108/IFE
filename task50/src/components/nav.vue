@@ -1,12 +1,11 @@
 <template>
   <div class="header">
-  	<div class="logo"> 问卷管理</div>
-  	<a href="#/" class="home">我的问卷</a>
+  	<router-link tag="div" class="logo" :to="{name: 'home'}"> 问卷管理</router-link>
+  	<router-link class="mylist" :to="{name: 'list'}">我的问卷</router-link>
   </div>
 </template>
 
 <script>
-
 export default {
   
 }
@@ -32,7 +31,7 @@ export default {
 	margin-left: 10%;
 	font-size: 1.2rem;
 	display: inline-block;
-	cursor: default;
+	cursor: pointer;
 }
 .logo:before{
 	display: inline-block;
@@ -45,7 +44,8 @@ export default {
 	text-align: center;
 	line-height: 1.5rem;
 }
-.home{
+.mylist{
+	cursor: pointer;
 	margin-left: 5%;
 	color: #fff;
 	font-size: 1rem;
@@ -57,7 +57,7 @@ export default {
 	text-align: center;
 	text-shadow: 0 -.05rem .05rem rgba(0,0,0,.5);
 }
-.home:hover{
+.mylist:hover{
 	background-color: rgb(255, 140, 25);
 }
 </style>
