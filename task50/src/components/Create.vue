@@ -31,7 +31,7 @@
     				<span v-on:click="up(id)">上移</span>
     				<span v-on:click="down(id)">下移</span>
     				<span v-on:click="reuse(id)">复用</span>
-    				<span v-on:click="del(id)">删除</span>
+    				<span v-on:click="delQuestion(id)">删除</span>
     			</li>
     		</ul>
     	</div>
@@ -60,7 +60,7 @@
     	</span>
     	<button class="btn" v-on:click="save">保存问卷</button>
     	<button class="btn" v-on:click="publish">发布问卷</button>
-    	<modal v-if="ifShowModal" v-on:hideModal="hideModal" v-bind:hint="hint"></modal>
+    	<modal v-bind:ifShowModal="ifShowModal" v-on:hideModal="hideModal" v-bind:hint="hint"></modal>
     </div>
   </div>
 </template>
@@ -69,14 +69,28 @@
 import store from '../store.js'
 import Datec from './Date'
 import Modal from './Modal'
+
+// filter type
+function getTitle (type) {
+	switch(type) {
+		case 'radio':
+			return '单选题';
+			break;
+		case 'checkbox':
+			return '多选题';
+			break;
+		case 'textarea':
+			return '文本题';
+			break;
+	}
+}
+
 export default {
 	data () {
-		let suvData = store.fetch();
 		return {
 			title: '',
 			showType: false,
-			userId: suvData.id,
-			formList: suvData.formList || [],
+			formList: store.fetch().formList || [],
 			form: [],
 			isMust: [],
 			datec: '',
@@ -89,6 +103,11 @@ export default {
 		Modal
 	},
 	methods: {
+		// 显示问题类型
+		isShow () {
+			this.showType = !this.showType;
+		},
+		// 添加问题
 		newForm (type) {
 			if(type === 'textarea'){
 				this.form.push({
@@ -99,7 +118,7 @@ export default {
 				})
 			}else{
 				this.form.push({
-					title: this.getTitle(type),
+					title: getTitle(type),
 					type: type,
 					options: [
 						{text: '选项1'},
@@ -109,19 +128,7 @@ export default {
 			}
 			this.isShow();
 		},
-		getTitle (type) {
-			switch(type) {
-				case 'radio':
-					return '单选题';
-					break;
-				case 'checkbox':
-					return '多选题';
-					break;
-				case 'textarea':
-					return '文本题';
-					break;
-			}
-		},
+		// 上移
 		up (id) {
 			if(id != 0){
 				let data = this.form[id];
@@ -129,6 +136,7 @@ export default {
 				this.form.splice(id-1, 0, data);
 			}
 		},
+		// 下移
 		down (id) {
 			if(id != this.form.length-1){
 				let data = this.form[id];
@@ -136,6 +144,7 @@ export default {
 				this.form.splice(id+1, 0, data);
 			}
 		},
+		// 复用
 		reuse (id) {
 			let oldData = this.form[id];
 			let newData = {};
@@ -155,52 +164,59 @@ export default {
 			}
 			this.form.splice(id+1, 0, newData);
 		},
-		del (id) {
+		// 删除问题
+		delQuestion (id) {
 			this.form.splice(id, 1);
 		},
+		// 添加选项
 		addOption (id) {
 			let options = this.form[id].options;
 			options.push({text: '选项' + (options.length+1)});
 		},
+		// 删除选项
 		delOption (id, index) {
 			this.form[id].options.splice(index, 1);
 		},
+		// 获取子组件传递过来的日期数据
 		getDate (date) {
 			this.datec = date;
 		},
+		// 保存问卷
 		save () {
-			this.formList.push({
-				title: this.title,
-				state: 'draft',
-				start: Date(),
-				end: this.datec,
-				form: this.form,
-			});
 			this.hint = 'save';
 			this.ifShowModal = true;
 		},
+		// 发布问卷
 		publish () {
 			if(!this.title || !this.form.length || !this.datec) {
 				this.hint = 'error';
 				this.ifShowModal = true;
 			}else{
-				this.formList.push({
-					title: this.title,
-					state: 'draft',
-					start: 'publish',
-					start: Date(),
-					end: this.datec,
-					form: this.form,
-				});
-				this.hint = 'oublish';
+				this.hint = 'publish';
 				this.ifShowModal = true;
 			}
 		},
-		hideModal () {
-			this.ifShowModal = false;
+		// 添加form数据
+		setForm (state) {
+			this.formList.push({
+				title: this.title,
+				state: state,
+				start: Date.now(),
+				end: this.datec,
+				form: this.form,
+			});
 		},
-		isShow () {
-			this.showType = !this.showType;
+		// 隐藏modal
+		hideModal (state) {
+			this.ifShowModal = false;
+			if(state !== 'cancel' && state !== 'error'){
+				this.setForm(state);
+				setTimeout( () => {this.$router.push({name: 'list'})}, 0);
+				// let self = this;
+				// setTimeout(function(){
+				// 	self.$router.push({name: 'list'});
+				// }, 0);
+			}
 		},
 	},
 	computed: {
@@ -209,10 +225,9 @@ export default {
 	watch: {
 		formList: {
 			deep: true,
-			handler () {
+			handler (formList) {
 				store.save({
-					userId: this.userId,
-					formList: this.formList
+					formList: formList
 				})
 			}
 		}

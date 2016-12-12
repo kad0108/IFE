@@ -36,12 +36,27 @@ export default {
 				return '请合理填写问卷';
 				break;
 			case 'publish':
-				return '是否发布问卷？';
+				return '是否发布问卷？发布后不可修改';
 				break;
 			case 'delete':
 				return '确认删除问卷？';
 				break;
 		}
 	},
-	
+	stateContent (state) {
+		switch(state) {
+			case 'draft':
+				return '未发布';
+				break;
+			case 'publish':
+				return '已发布';
+				break;
+			case 'end':
+				return '已结束';
+				break;
+			case '':
+				return '未设置';
+				break;
+		}
+	}
 }

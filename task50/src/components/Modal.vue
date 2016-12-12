@@ -1,25 +1,35 @@
 <template>
-	<div class="modal">
+	<div class="modal" v-if="ifShowModal">
 		<div class="mask" v-on:click="hide"></div>
 		<div class="dialog">
 			<div class="headline">提示</div>
 			<div class="body">{{hint | hintContent}}</div>
-			<button v-on:click="hide" class="btn">确定</button>
+			<div class="footline">
+				<button v-on:click="confirm" class="btn">确定</button>
+				<button v-if="hint == 'publish' || hint == 'delete'" v-on:click="cancel" class="btn">取消</button>
+			</div>
 		</div>
 	</div>
 </template>
 <script>
 import filter from '../filter'
 export default {
-	props: ['hint'],
+	props: ['hint', 'ifShowModal'],
 	data () {
 		return {
 		}
 	},
 	methods: {
 		hide () {
-			this.$emit('hideModal');
-			this.$router.push({path: 'list'});
+			this.$emit('hideModal', this.hint);
+			if(this.hint === 'error') return;
+		},
+		confirm () {
+			this.hide();
+		},
+		cancel () {
+			this.$emit('hideModal', 'cancel');
+			return 'cancel';
 		}
 	},
 	filters: filter,
@@ -42,8 +52,8 @@ export default {
 	height: 100%;
 }
 .modal .dialog{
-	width: 25rem;
-	height: 17rem;
+	width: 23rem;
+	height: 16rem;
 	position: fixed;
 	top: 50%;
 	left: 50%;
@@ -65,16 +75,16 @@ export default {
 	text-align: left;
 	padding-left: 2rem;
 	cursor: default;
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 }
 .modal .body{
 	position: relative;
 	padding: 2rem 2rem;
 	font-size: 1.2rem;
 }
-.modal .btn{
+.modal .footline{
 	position: absolute;
-	right: 2rem;
-	bottom: 2rem;
+	bottom: 8%;
+	right: 5%;
 }
 </style>

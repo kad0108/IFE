@@ -20,7 +20,8 @@ var router = new VueRouter({
 		{path: '/create', name: 'create', component: Create},
 		{path: '/list', name: 'list', component: List},
 		{path: '/edit/:id', name: 'edit', component: Create},
-		{path: '/fill/:id', name: 'fill', component: Create}
+		{path: '/fill/:id', name: 'fill', component: Create},
+		{path: '/check/:id', name: 'check', component: Create}
 	]
 })
 
