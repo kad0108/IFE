@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import App from './App'
 import Create from './components/Create'
 import List from './components/List'
+import Error from './components/Error'
+import Fill from './components/Fill'
 
 Vue.use(VueRouter);
 
@@ -20,8 +22,10 @@ var router = new VueRouter({
 		{path: '/create', name: 'create', component: Create},
 		{path: '/list', name: 'list', component: List},
 		{path: '/edit/:id', name: 'edit', component: Create},
-		{path: '/fill/:id', name: 'fill', component: Create},
-		{path: '/check/:id', name: 'check', component: Create}
+		{path: '/fill/:id', name: 'fill', component: Fill},
+		{path: '/check/:id', name: 'check', component: Create},
+		{path: '/404', name: 'error', component: Error},
+		{path: '*', redirect: '/404'},
 	]
 })
 

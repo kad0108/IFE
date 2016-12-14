@@ -29,7 +29,7 @@ export default {
 	},
 	hintContent (hint) {
 		switch(hint) {
-			case 'save': 
+			case 'draft': 
 				return '问卷已保存';
 				break;
 			case 'error':

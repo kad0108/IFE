@@ -14,7 +14,11 @@
 <script>
 import filter from '../filter'
 export default {
-	props: ['hint', 'ifShowModal'],
+	props: {
+		hint: String,
+		ifShowModal: Boolean,
+		del: Function,
+	},
 	data () {
 		return {
 		}
@@ -25,6 +29,7 @@ export default {
 			if(this.hint === 'error') return;
 		},
 		confirm () {
+			if(this.hint === 'delete') this.del();
 			this.hide();
 		},
 		cancel () {

@@ -22,6 +22,9 @@
 </template>
 <script>
 export default {
+	props: {
+		datec: String // xxxx-xx-xx
+	},
 	data () {
 		let today = new Date()
 		return {
@@ -40,10 +43,16 @@ export default {
 			},
 			week: ['日','一','二','三','四','五','六'],
 			range: [],
-			formatDate: '',
+			formatDate: this.datec || '',
 		}
 	},
 	created () {
+		if(this.datec){
+			this.formatDate = this.datec;
+			this.date.year = this.datec.slice(0, 4);
+			this.date.month = this.datec.slice(5, 7)-1;
+			this.date.day = this.datec.slice(8, 10);
+		}
 		this.getRange();
 		this.formatDate = this.format(this.date);
 	},
@@ -139,6 +148,7 @@ export default {
 	border-radius: .2;
 	box-shadow: 0 .05em .25em rgba(0,0,0,.5);
 	user-select: none;
+	margin-bottom: 5rem;
 }
 .date-wrap .year-month{
 	position: relative;

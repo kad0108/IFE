@@ -2,7 +2,6 @@ const KEY = 'survey'
 
 if(!window.localStorage.getItem(KEY)){
 	let data = {
-		userId: 1,
 		formList: []
 	};
 	localStorage.setItem(KEY, JSON.stringify(data));

@@ -18,15 +18,15 @@
 					<td>{{item.end}}</td>
 					<td>{{item.state | stateContent}}</td>
 					<td>
-						<!-- <router-link tag="button" class="btn" :to="{name: 'edit', params: {id: index}}" v-if="item.state=='draft'">编辑问卷</router-link>
+						<router-link tag="button" class="btn" :to="{name: 'edit', params: {id: index}}" v-if="item.state=='draft'">编辑问卷</router-link>
 						<router-link tag="button" class="btn" :to="{name: 'fill', params: {id: index}}" v-if="item.state=='publish'">填写问卷</router-link>
-						<router-link tag="button" class="btn" :to="{name: 'check', params: {id: index}}" v-if="item.state!='draft'">查看数据</router-link> -->
+						<!-- <router-link tag="button" class="btn" :to="{name: 'check', params: {id: index}}" v-if="item.state!='draft'">查看数据</router-link> -->
 						<button class="btn" v-on:click="delSurvey(index)">删除问卷</button>
 					</td>
 				</tr>
 			</tbody>
 		</table>
-		<modal v-if="ifShowModal"></modal>
+		<modal v-bind:ifShowModal="ifShowModal" v-bind:del="del" v-on:hideModal="hideModal" v-bind:hint="hint"></modal>
 	</div>
 </template>
 <script>
@@ -38,6 +38,7 @@ export default {
 		return {
 			formList: store.fetch().formList,
 			hint: '',
+			index: -1,
 			ifShowModal: false,
 		}
 	},
@@ -46,7 +47,15 @@ export default {
 	},
 	methods: {
 		delSurvey (index) {
-			this.formList.splice(index, 1);
+			this.index = index;
+			this.ifShowModal = true;
+			this.hint = 'delete';
+		},
+		del () {
+			this.formList.splice(this.index, 1);
+		},
+		hideModal (state) {
+			this.ifShowModal = false;
 		}
 	},
 	watch: {
