@@ -3,7 +3,7 @@
     	<div class="question" v-for="(item, id) in form">
     		<ul>
     			<li class="question-title">
-    				<span>Q{{id+1}}</span>
+    				<span>Q{{id+1}}.</span>
     				<input type="text" v-if="item.type !== 'textarea'" v-model="item.title" class="question-title" onfocus="this.select()">
     				<span v-else class="question-title">{{item.type | typeContent}}</span>
     			</li>
@@ -19,7 +19,7 @@
     			<ol v-else>
     				<li v-for="(option, index) in item.options" class="options">
 	    				<span v-bind:class="item.type"></span>
-	    				<input type="text" v-model="item.options[index]" onfocus="this.select()">
+	    				<input type="text" v-model="option.name" onfocus="this.select()">
 	    				<span class="delOption" v-on:click="delOption(id, index)">x</span>
 	    			</li>
 	    			<li class="addOption" v-on:click="addOption(id)">+</li>
@@ -88,7 +88,7 @@ export default {
 		// 添加选项
 		addOption (id) {
 			let options = this.form[id].options;
-			options.push('选项' + (options.length+1));
+			options.push({name: '选项' + (options.length+1), num: 0});
 		},
 		// 删除选项
 		delOption (id, index) {

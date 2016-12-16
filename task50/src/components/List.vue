@@ -20,7 +20,7 @@
 					<td>
 						<router-link tag="button" class="btn" :to="{name: 'edit', params: {id: index}}" v-if="item.state=='draft'">编辑问卷</router-link>
 						<router-link tag="button" class="btn" :to="{name: 'fill', params: {id: index}}" v-if="item.state=='publish'">填写问卷</router-link>
-						<!-- <router-link tag="button" class="btn" :to="{name: 'check', params: {id: index}}" v-if="item.state!='draft'">查看数据</router-link> -->
+						<router-link tag="button" class="btn" :to="{name: 'check', params: {id: index}}" v-if="item.state!='draft'">查看数据</router-link>
 						<button class="btn" v-on:click="delSurvey(index)">删除问卷</button>
 					</td>
 				</tr>

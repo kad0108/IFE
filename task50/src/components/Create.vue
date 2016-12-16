@@ -93,14 +93,28 @@ export default {
 					title: '',
 					type: type,
 					required: [],
-					content: ''
+					content: '',
+					num: 0,
 				})
-			}else{
+			}else if(type === 'radio'){
 				this.form.push({
 					title: getTitle(type),
 					type: type,
-					options: ['选项1','选项2'],
-					chosen: [],//记录用户选择
+					options: [
+						{ name: '选项1', num: 0 },
+						{ name: '选项2', num: 0 }
+					],
+					chosen: -1, //这儿初始化为''空字符串就会导致在使用v-model时第一个选项总会被选中
+				});
+			}else if(type === 'checkbox'){
+				this.form.push({
+					title: getTitle(type),
+					type: type,
+					options: [
+						{ name: '选项1', num: 0 },
+						{ name: '选项2', num: 0 }
+					],
+					chosen: [],
 				});
 			}
 			this.isShow();
@@ -140,12 +154,12 @@ export default {
 					start: Date.now(),
 					end: this.datec,
 					form: this.form,
+					fillnum: 0,
 				});
 			}
 		},
 		// 隐藏modal
 		hideModal (state) {
-
 			this.ifShowModal = false;
 			if(state !== 'cancel' && state !== 'error'){
 				this.setForm(state);

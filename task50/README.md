@@ -70,6 +70,10 @@ $ npm run dev
 
 **路由的作用就是转发信息**
 
+```npm install vue-router
+npm install vue-router
+```
+
 使用 Vue.js 时，我们就已经把组件组合成一个应用了，当你要把 vue-router 加进来，只需要配置组件和路由映射，然后告诉 vue-router 在哪里渲染它们。直接看样例：
 
 ```javascript
@@ -122,6 +126,10 @@ new Vue({
 
 **vuex是vue.js的状态管理模式，集中存储管理应用的所有组件的状态。** 
 
+```
+npm install vuex
+```
+
 单个组件内是单向数据流：state(data)->view(template)->actions(methods)->state(data)，当多个组件共享状态时，有很多问题，解决方法是把组件的共享状态抽取出来，以全局单例模式管理，这就是vuex的基本思想。
 
 ![vuex](http://vuex.vuejs.org/zh-cn/images/vuex.png)
@@ -154,6 +162,12 @@ console.log(store.state.count)
 
   ​
 
+## [vue-resource](https://github.com/pagekit/vue-resource)
+
+网络请求模块，为单页应用渲染动态数据
+
+
+
 ## [Webpack](http://www.jianshu.com/p/42e11515c10f#)
 
 package.json文件是npm说明文件，```npm init```自动创建。貌似package.json文件中不能加注释。
@@ -173,6 +187,20 @@ Loaders是webpack中对各种格式的文件进行处理。eg: scss to css, es6 
 配置babel：babel的配置选项放在".babelrc"文件中。
 
 配置css-loader： ```npm install --save-dev style-loader css-loader```，这里还有点问题，先留着。
+
+
+
+## [Echarts](http://echarts.baidu.com/tutorial.html#ECharts%20%E7%89%B9%E6%80%A7%E4%BB%8B%E7%BB%8D)
+
+[Echarts JS代码下载](http://echarts.baidu.com/download.html)
+
+```
+npm install echarts --save
+```
+
+[按需引入模块列表](https://github.com/ecomfe/echarts/blob/master/index.js)
+
+通过npm安装的echarts，需要在项目代码中````require('echarts')` ```或```import echarts from 'echarts'```
 
 
 
@@ -224,7 +252,7 @@ Loaders是webpack中对各种格式的文件进行处理。eg: scss to css, es6 
 
 * v-model不支持动态绑定input的type，所以改为用v-if
 
-* ​
+* 在写填写问卷功能时就考虑开始用echarts了，echarts需要什么格式的数据渲染图表。因为图表要展示题目的选项选择比例情况，所以每个用户填写问卷的具体内容是什么其实并不需要记录，只需要记录每个选项被选择过多少次即可，对于文本题要展示有效回答比例，则再多加一个属性记录这个问卷一共被填写过多少次。
 
 
 

@@ -6,7 +6,7 @@
 			<div class="body">{{hint | hintContent}}</div>
 			<div class="footline">
 				<button v-on:click="confirm" class="btn">确定</button>
-				<button v-if="hint == 'publish' || hint == 'delete'" v-on:click="cancel" class="btn">取消</button>
+				<button v-if="hint === 'publish' || hint === 'delete' || hint === 'fill'" v-on:click="cancel" class="btn">取消</button>
 			</div>
 		</div>
 	</div>

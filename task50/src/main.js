@@ -5,6 +5,7 @@ import Create from './components/Create'
 import List from './components/List'
 import Error from './components/Error'
 import Fill from './components/Fill'
+import Check from './components/Check'
 
 Vue.use(VueRouter);
 
@@ -23,7 +24,7 @@ var router = new VueRouter({
 		{path: '/list', name: 'list', component: List},
 		{path: '/edit/:id', name: 'edit', component: Create},
 		{path: '/fill/:id', name: 'fill', component: Fill},
-		{path: '/check/:id', name: 'check', component: Create},
+		{path: '/check/:id', name: 'check', component: Check},
 		{path: '/404', name: 'error', component: Error},
 		{path: '*', redirect: '/404'},
 	]

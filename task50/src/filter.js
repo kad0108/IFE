@@ -41,6 +41,9 @@ export default {
 			case 'delete':
 				return '确认删除问卷？';
 				break;
+			case 'fill':
+				return '确认提交问卷？';
+				break;
 		}
 	},
 	stateContent (state) {
