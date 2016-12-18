@@ -1,6 +1,6 @@
 # Task50 [demo](https://kad0108.github.io/IFE/task50)
 
-> A Vue.js project
+> A Vue.js project. 基本功能的初步实现，只用到了基本的```vue + vue-router```，还需要继续改进加入```vuex + SCSS```。用了不到两周的零散时间做完，最开始入手时还觉得不知道该怎么实现，一点一点功能实现，做完再回过头来看，其实也没有多难。总把一个大问题看的太难，其实拆分成一小步一小步做就好了。之后就慢慢对这个单页应用做改进啦~~
 
 
 ## Vue+Webpack
