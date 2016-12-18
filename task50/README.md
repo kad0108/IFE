@@ -1,6 +1,9 @@
 # Task50 [demo](https://kad0108.github.io/IFE/task50)
 
-> A Vue.js project. 基本功能的初步实现，只用到了基本的```vue + vue-router```，还需要继续改进加入```vuex + SCSS```。用了不到两周的零散时间做完，最开始入手时还觉得不知道该怎么实现，一点一点功能实现，做完再回过头来看，其实也没有多难。总把一个大问题看的太难，其实拆分成一小步一小步做就好了。之后就慢慢对这个单页应用做改进啦~~
+> A Vue.js project. 
+>
+> 基本功能的初步实现，只用到了基本的```vue + vue-router```，还需要继续改进加入```vuex + SCSS```。用了不到两周的零散时间做完，最开始入手时还觉得不知道该怎么实现，一点一点功能实现，做完再回过头来看，其实也没有多难。总把一个大问题看的太难，其实拆分成一小步一小步做就好了。之后就慢慢对这个单页应用做改进啦~~
+
 
 
 ## Vue+Webpack
@@ -17,6 +20,8 @@ $ cd my-project
 $ npm install
 $ npm run dev
 ```
+
+* ```npm run dev/build```命令执行什么代码，是看```package.json```中scripts属性的设置，更像是命令的快捷方式。build生成的dist目录作用：开发和发布的内容或代码形式是不同的，最后放在服务器上的发布版代码是压缩优化的，dist就是存放发布版本代码的目录。github不识别dist目录，只需要将```.gitignore```文件中的```dist/```去掉即可。
 
 * vue的template中的```export default{}```编译时会自动生成new Vue({})
 
@@ -120,8 +125,6 @@ new Vue({
 * 编程式导航，这部分内容和Html5 History API基本完全相同。点击<router-link>时会内部调用router.push()方法。
 
 
-
-
 ## [Vuex](http://vuex.vuejs.org/zh-cn/intro.html)
 
 **vuex是vue.js的状态管理模式，集中存储管理应用的所有组件的状态。** 
@@ -160,13 +163,10 @@ console.log(store.state.count)
 
 * 字符串模板使用反撇号`，较普通字符串多了插值功能```${var}``` 
 
-  ​
 
 ## [vue-resource](https://github.com/pagekit/vue-resource)
 
 网络请求模块，为单页应用渲染动态数据
-
-
 
 ## [Webpack](http://www.jianshu.com/p/42e11515c10f#)
 
@@ -187,8 +187,6 @@ Loaders是webpack中对各种格式的文件进行处理。eg: scss to css, es6 
 配置babel：babel的配置选项放在".babelrc"文件中。
 
 配置css-loader： ```npm install --save-dev style-loader css-loader```，这里还有点问题，先留着。
-
-
 
 ## [Echarts](http://echarts.baidu.com/tutorial.html#ECharts%20%E7%89%B9%E6%80%A7%E4%BB%8B%E7%BB%8D)
 
