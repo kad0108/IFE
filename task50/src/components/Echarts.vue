@@ -121,11 +121,11 @@ export default {
 	height: 20rem;
 }
 .chart .bar{
-	width: 60rem;
+	width: 100%;
 	height: 20rem;
 }
 .chart .tbar{
-	width: 60rem;
+	width: 100%;
 	height: 10rem;
 }
 </style>

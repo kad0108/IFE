@@ -1,4 +1,4 @@
-# Task50 [demo](https://kad0108.github.io/IFE/task50)
+# Task50 [demo](https://kad0108.github.io/IFE/task50/dist)
 
 > A Vue.js project. 
 >
