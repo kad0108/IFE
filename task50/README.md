@@ -77,7 +77,6 @@ $ npm run dev
 
 ```
 npm install vue-router
-npm install vue-router
 ```
 
 使用 Vue.js 时，我们就已经把组件组合成一个应用了，当你要把 vue-router 加进来，只需要配置组件和路由映射，然后告诉 vue-router 在哪里渲染它们。直接看样例：
