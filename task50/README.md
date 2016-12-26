@@ -75,7 +75,8 @@ $ npm run dev
 
 **路由的作用就是转发信息**
 
-```npm install vue-router
+```
+npm install vue-router
 npm install vue-router
 ```
 
