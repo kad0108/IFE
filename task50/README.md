@@ -159,9 +159,133 @@ store.commit('increment')
 console.log(store.state.count)
 ```
 
-* Vuex的核心是store，包含着应用中大部分的状态。改变store中的状态的唯一途径是显式地提交mutations
+* Vuex的核心是store，包含着应用中大部分的状态。
 
-* 字符串模板使用反撇号`，较普通字符串多了插值功能```${var}``` 
+* 字符串模板使用反撇号```(`)``` ，较普通字符串多了插值功能```${var}``` 
+
+* **state**:  在vue组件中获得vuex状态，state的属性通过```this.$store.state.count```获取；
+
+  mapState:  组件获取多个状态时借助mapState辅助函数
+
+* **getters**: 当多个组件需要用到某函数fn，可以在store的getters中定义，通过```this.$store.getters.fn```获取
+
+  ```
+  getters: {
+      doneTodos: state => {
+        return state.todos.filter(todo => todo.done)
+      }
+    }
+  store.getters.doneTodos
+  ```
+
+  ​
+
+  mapGetters: 将store的getters映射到局部计算属性（这个没太懂），将getters的属性映射为另一个名字
+
+* **mutations**: 改变store中的状态的唯一途径是显式地提交mutations，每个mutation都有一个事件类型type和回调函数handler（必须是同步函数）
+
+  1. 使用常量替代mutation事件类型```export const TYPE = 'TYPE'```
+
+  2. 可向mutation传入额外的参数，并通过对象的方式显式地提交
+
+     ```
+     mutations: {
+       [TYPE](state, param){
+         //mutate state
+       }
+     }
+     store.commit({
+       type: TYPE,
+       param: 10,
+     })
+     ```
+
+  3. 需要提前在store中初始化好所有所需属性
+
+  4. mapMutations：把显式提交映射为组件中的method
+
+
+* **actions**: 包含异步操作，提交mutation而不是直接变更状态
+
+  ```
+  const store = new Vue.store({
+    state: {
+      count: 0
+    },
+    mutations: {
+      increment(state){
+        state.count++;
+      }
+    },
+    actions: {
+      increment(context){
+        context.commit('increment')
+      }
+    }
+  })
+
+  //简化代码
+  actions: {
+    increment({commit}){
+      commit('increment');
+    }
+  }
+  ```
+
+  1. Action 函数接受一个与 store 实例具有相同方法和属性的 context 对象，因此你可以调用 `context.commit` 提交一个 mutation，或者通过 `context.state` 和 `context.getters` 来获取 state 和 getters。
+
+  2. action通过store.dispatch方法触发，在组件中使用```this.$store.dispatch('xxx')```分发action
+
+  3. mapActions：把组件的methods映射为store.dispatch调用
+
+  4. store.dispatch 的返回的是被触发的 action 函数的返回值，因此你可以在 action 中返回 Promise
+
+     ```
+     actions: {
+       actionA ({ commit }) {
+         return new Promise((resolve, reject) => {
+           setTimeout(() => {
+             commit('someMutation')
+             resolve()
+           }, 1000)
+         })
+       }
+     }
+     //触发
+     store.dispatch('actionA').then(()=>{
+       //...
+     })
+     ```
+
+* **modules**: 将 store 分割到模块，每个模块拥有自己的 state、mutation、action、getters
+
+  ```
+  const moduleA = {
+    state: { ... },
+    mutations: { ... },
+    actions: { ... },
+    getters: { ... }
+  }
+
+  const moduleB = {
+    state: { ... },
+    mutations: { ... },
+    actions: { ... }
+  }
+
+  const store = new Vuex.Store({
+    modules: {
+      a: moduleA,
+      b: moduleB
+    }
+  })
+
+  store.state.a // -> moduleA 的状态
+  store.state.b // -> moduleB 的状态
+  ```
+
+
+  
 
 
 ## [vue-resource](https://github.com/pagekit/vue-resource)
