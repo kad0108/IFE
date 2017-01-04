@@ -167,7 +167,7 @@ console.log(store.state.count)
 
   mapState:  组件获取多个状态时借助mapState辅助函数
 
-* **getters**: 当多个组件需要用到某函数fn，可以在store的getters中定义，通过```this.$store.getters.fn```获取
+* **getters**: 当多个组件需要用到某函数fn，可以在store的getters中定义，接收state为第一个参数，通过```this.$store.getters.fn```获取
 
   ```
   getters: {
@@ -284,8 +284,87 @@ console.log(store.state.count)
   store.state.b // -> moduleB 的状态
   ```
 
+* 项目结构：
 
-  
+  ```
+  /src/store/index.js
+  import Vue from 'vue'
+  import Vuex from 'vuex'
+  import mutations from './mutations'
+  import actions from './actions'
+  import getters from './getters'
+
+  Vue.use(Vuex);
+
+  const state = {
+    time: ''
+  };
+
+  export default new Vuex.Store({
+    state,
+    mutations,
+    actions,
+    getters
+  })
+  ```
+
+  ```
+  /src/store/mutation-types.js
+  export const CHANGE_TIME = 'SOME_MUTATION';
+  ```
+
+  ```
+  /src/store/mutations.js
+  import * as types from './mutation-types'
+
+  export default {
+    [types.CHANGE_TIME] (state, param) {
+      state.time = param;
+    }
+  }
+  ```
+
+  ```
+  /src/store/actions.js
+  import * as types from './mutation-types'
+
+  export default {
+    changeTimeFn ({commit}, param){
+      commit(types.CHANGE_TIME, param)
+    }
+  }
+  ```
+
+  ```
+  /src/store/getters.js
+  export default {
+    getTime: (state) => state.time
+  }
+  ```
+
+  在vue组件中获取state通过计算属性computed，分发action通过methods
+
+  ```
+  <input :value="time" @input="changeTime">
+
+  export default {
+    computed: {
+      time () {
+        return this.$store.getters.getTime
+      }
+    },
+    methods: {
+      changeTime (e) {
+        this.$store.dispatch('changeTimeFn', e)
+      }
+    }
+  }
+  ```
+
+  ​
+
+
+
 
 
 ## [vue-resource](https://github.com/pagekit/vue-resource)
