@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>排序可视化</title>
+	<style>
+		.display{
+			width: calc(100%-20px);
+			border: 2px solid #eee;
+			height: 400px;
+			margin-top: 20px;
+			display: flex;
+			flex-direction: row;/*主轴方向*/
+			justify-content: center;/*主轴上对齐方式*/
+			align-items: flex-end;/*交叉轴上对齐方式*/
+		}
+		span{
+			display: inline-block;
+			box-sizing: border-box;
+			background-color: red;
+			/*width: 10px;*/
+			color: white;
+			border: 1px solid white;
+			transition: height 500ms;
+			font-size: 12px;
+			padding: .1%;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="btn">
+			<button type="button" data-val="0">随机生成60个数</button>
+			<button type="button" data-val="1">冒泡排序</button>
+			<button type="button" data-val="2">快速排序</button>
+			<button type="button" data-val="3">归并排序</button>
+		</div>
+		<div class="display"></div>
+	</div>
+	<script src="../util.js"></script>
+	<script src="task.js"></script>
+</body>
+</html>
