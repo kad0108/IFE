@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>contextMenu</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		#board{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			margin-top: 20px;
+		}
+		span{
+			padding: 10px;
+			display: inline-block;
+			width: 300px;
+			height: 400px;
+			border: 1px solid #ccc;
+			box-shadow: 5px 5px 5px #888;
+			border-radius: 5px;
+		}
+		#menu{
+			position: absolute;
+			width: 100px;
+			height: 200px;
+			background: #eee;
+			border: 1px solid #ccc;
+			box-shadow: 5px 5px 5px #888;
+			z-index: 10;
+			list-style: none;
+			padding: 5px;
+			cursor: default;
+		}
+		#menu>li:hover{
+			background-color: #ccc;
+		}
+		.hide{
+			visibility: hidden;
+		}
+	</style>
+</head>
+<body>
+	<div id="board">
+		<span data-val="0">这里自定义了右键菜单</span>
+		<span data-val="1">这里屏蔽了右键菜单</span>
+	</div>
+	<ul id="menu" class="hide">
+		<li>copy</li>
+		<li>cut</li>
+		<li>paste</li>
+	</ul>
+	<script src="../util.js"></script>
+	<script>
+		var $board = $('#board'),
+			$menu = $('#menu'),
+			init = function(){
+				EventUtil.addEvent($board, 'contextmenu', function(e){
+					EventUtil.stopPropagation(e);
+					if(e.target !== e.currentTarget){
+						EventUtil.preventDefault(e);
+						var val = parseInt(e.target.dataset.val);
+						switch(val){
+							case 0:
+								var x = e.pageX, y = e.pageY;
+								console.log(x, y, '--', e.clientX, e.clientY);
+								$menu.style.left = x + 'px';
+								$menu.style.top = y + 'px';
+								$menu.classList.remove('hide');
+								break;
+							case 1:
+								return false;
+						}
+					}
+				});
+				EventUtil.addEvent(document, 'click', function(e){
+					EventUtil.stopPropagation(e);
+					$menu.classList.add('hide');
+				});
+				EventUtil.addEvent($menu, 'contextmenu', function(e){
+					EventUtil.preventDefault(e);
+				})
+				EventUtil.addEvent($menu, 'click', function(e){
+					EventUtil.stopPropagation(e);
+					if(e.target !== e.currentTarget) alert(e.target.innerHTML);
+				})
+			};
+		init();
+
+	</script>
+</body>
+</html>
