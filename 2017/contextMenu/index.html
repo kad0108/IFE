@@ -56,40 +56,41 @@
 	</ul>
 	<script src="../util.js"></script>
 	<script>
-		var $board = $('#board'),
-			$menu = $('#menu'),
-			init = function(){
-				EventUtil.addEvent($board, 'contextmenu', function(e){
-					EventUtil.stopPropagation(e);
-					if(e.target !== e.currentTarget){
-						EventUtil.preventDefault(e);
-						var val = parseInt(e.target.dataset.val);
-						switch(val){
-							case 0:
-								var x = e.pageX, y = e.pageY;
-								console.log(x, y, '--', e.clientX, e.clientY);
-								$menu.style.left = x + 'px';
-								$menu.style.top = y + 'px';
-								$menu.classList.remove('hide');
-								break;
-							case 1:
-								return false;
+		(function(){
+			var $board = $('#board'),
+				$menu = $('#menu'),
+				init = function(){
+					EventUtil.addEvent($board, 'contextmenu', function(e){
+						EventUtil.stopPropagation(e);
+						if(e.target !== e.currentTarget){
+							EventUtil.preventDefault(e);
+							var val = parseInt(e.target.dataset.val);
+							switch(val){
+								case 0:
+									var x = e.pageX, y = e.pageY;
+									$menu.style.left = x + 'px';
+									$menu.style.top = y + 'px';
+									$menu.classList.remove('hide');
+									break;
+								case 1:
+									return false;
+							}
 						}
-					}
-				});
-				EventUtil.addEvent(document, 'click', function(e){
-					EventUtil.stopPropagation(e);
-					$menu.classList.add('hide');
-				});
-				EventUtil.addEvent($menu, 'contextmenu', function(e){
-					EventUtil.preventDefault(e);
-				})
-				EventUtil.addEvent($menu, 'click', function(e){
-					EventUtil.stopPropagation(e);
-					if(e.target !== e.currentTarget) alert(e.target.innerHTML);
-				})
-			};
-		init();
+					});
+					EventUtil.addEvent(document, 'click', function(e){
+						EventUtil.stopPropagation(e);
+						$menu.classList.add('hide');
+					});
+					EventUtil.addEvent($menu, 'contextmenu', function(e){
+						EventUtil.preventDefault(e);
+					})
+					EventUtil.addEvent($menu, 'click', function(e){
+						EventUtil.stopPropagation(e);
+						if(e.target !== e.currentTarget) alert(e.target.innerHTML);
+					})
+				};
+			init();
+		})();
 
 	</script>
 </body>
