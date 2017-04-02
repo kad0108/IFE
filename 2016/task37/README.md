@@ -1,4 +1,4 @@
-##任务描述 [demo](https://kad0108.github.io/IFE/task37)
+## 任务描述 [demo](https://kad0108.github.io/IFE/2016/task37)
 
 * 参考如下设计图，实现一个浮出层的UI组件实现
 * 浮出层的中心默认在屏幕正中
@@ -10,7 +10,7 @@
 * 有能力的同学可以实现浮出层的拖拽移动浮出窗口位置以及拖拽边缘来放大缩小浮出窗口的功能
 
 
-##知识点
+## 知识点
 
 * ```-webkit-user-select```或```onselectstart="return false"```禁止用户选中文本。
 * 鼠标触发事件mousedown->mousemove->mouseup顺序，所以mousemove、mouseup的事件绑定应该在mousedown的事件绑定中进行。(这个是自己的理解不知道对不对)

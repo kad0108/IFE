@@ -13,6 +13,7 @@
 		$btns = $('.btn')[0],
 
 		geneDom = function(){
+			console.log('TEST');
 			randomNum();
 			$display.innerHTML = "";
 			data.forEach(function(item){
@@ -130,10 +131,12 @@
 			})
 		}
 		init = function(){
+			console.log($btns);
 			disableBtns(0);
 			EventUtil.addEvent($btns, "click", function(e){
-				EventUtil.stopPropagation();
+				// EventUtil.stopPropagation();
 				var target = EventUtil.getTarget(e);
+				console.log('click');
 				if(target){
 					switch(parseInt(target.dataset.val)){
 						case 0:

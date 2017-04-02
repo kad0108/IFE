@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>排序表格</title>
+	<style>
+		table{
+			margin: 60px auto;
+			text-align: center;
+			border-collapse: collapse;/*把表格边框合并为单独的边框*/
+		}
+		thead{
+			cursor: pointer;
+			background-color: black;
+			color: white;
+		}
+		th, tr, td{
+			border: 1px solid grey;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>姓名</th>
+				<th id="cha">语文</th>
+				<th id="ma">数学</th>
+				<th id="eng">英文</th>
+				<th>总分</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+	<script>
+		function Stu(name, cha, ma, eng){
+			this.name = name;
+			this.cha = cha;
+			this.ma = ma;
+			this.eng = eng;
+			this.sum = this.cha + this.ma + this.eng;
+		}
+		function Table(data){
+			this.data = data;
+			this.tbody = document.getElementsByTagName('tbody')[0];
+			this.flag = false;
+		}
+		Table.prototype.render = function(){
+			this.tbody.innerHTML = "";
+			this.data.forEach((item) => {
+				this.tbody.innerHTML += "<tr><td>"+ item.name +"</td><td>"+ item.cha +
+					"</td><td>"+item.ma+"</td><td>"+ item.eng +"</td><td>"+ item.sum +"</td></tr>";
+			})
+		}
+		Table.prototype.sort = function(id){
+			if(this.flag){
+				this.data.sort(function(a, b){
+					return a[id] < b[id] ? -1 : 1;// 升序
+				})
+				this.flag = !this.flag;
+			}else{
+				this.data.sort(function(a, b){
+					return a[id] < b[id] ? 1: -1;// 降序
+				})
+				this.flag = !this.flag;
+			}
+			this.render();
+		}
+		var data = [
+			new Stu('小明', 80, 90, 70),
+			new Stu('小红', 90, 60, 100),
+			new Stu('小亮', 60, 100, 90, 230)
+		];
+		var table = new Table(data);
+		table.render();
+		document.getElementsByTagName('thead')[0].addEventListener('click', function(e){
+			if(e.target && e.target.tagName === 'th'.toUpperCase()){
+				table.sort(e.target.id);
+			}
+		})
+	</script>
+</body>
+</html>

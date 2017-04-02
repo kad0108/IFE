@@ -1,10 +1,10 @@
-##任务描述 [demo](https://kad0108.github.io/IFE/task43)
+## 任务描述 [demo](https://kad0108.github.io/IFE/2016/task43)
 
 * 参考下方设计图，使用JavaScript、CSS，实现在不同图片数量时的不同布局
 * 实现封装为一个JavaScript的库
 * ![设计图](http://7xrp04.com1.z0.glb.clouddn.com/task_3_43_1.png)
 
-##知识点
+## 知识点
 
 * clip-path属性实现剪切效果，起笔点和落笔点连线剪切出的图形。
 * 用CSS3实现了几种loading效果，[看这里](https://github.com/kad0108/Html5/tree/gh-pages/loading)
@@ -26,7 +26,7 @@ background-size用于设置<div style="background-image: url('')">元素的背�
 * 对不同图片数量布局的实现，可以直接absolute定位设置top、left等属性；也可以float浮动占位排列。因为参考的队伍采用了float，图片的长宽通过js计算得到，出现bug改变浏览器宽度布局打乱，我通过直接指定每一种布局div的宽高避免布局打乱。
 * 任务还提供了image placeholder的方式，通过请求一个固定大小颜色的图片来展示，这个可以用到后面的瀑布流任务中。[image placeholder](https://placehold.it/)
 
-##参考
+## 参考
 
 ![clip-path属性介绍](clip-path.png)
 

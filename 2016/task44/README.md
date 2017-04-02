@@ -1,4 +1,4 @@
-##任务描述 [demo](https://kad0108.github.io/IFE/task44)
+## 任务描述 [demo](https://kad0108.github.io/IFE/2016/task44)
 
 #### 实现向第三方图片源500px请求图片资源，会出现每次刷新图片不同的情况，考虑到500px是国外服务器也会出现图片加载失败的情况。同一张图片请求了两个image_size的url，一个像素小用来加载瀑布流减少缓冲时间，一个是高清图用来全屏显示。
 
@@ -13,14 +13,14 @@
 * 点击一张图片后，全屏显示该图（有能力的同学可以适当增加动画效果）。黑色遮罩的不透明度是 80%，点击黑色部分退出全屏浏览。
 * 有能力的同学可以实现，当页面滚动到瀑布图最下方后，通过Ajax动态加载下一批图片
 
-##参考资料
+## 参考资料
 
 * [Jquery.waterfall demo](http://dfcreative.github.io/projects/waterfall/)
 * [PLACEHOLD.IT 用来占位的不同大小的图片生成工具](https://placehold.it/)
 * [500px API](https://github.com/500px/api-documentation)
 * [500px image_size设置](https://github.com/500px/api-documentation/blob/master/basics/formats_and_terms.md#image-urls-and-image-sizes)
 
-##知识点
+## 知识点
 
 * CSS3 [aspect-ratio](http://www.w3chtml.com/css3/properties/madia-queries/aspect-ratio.html) 属性 指浏览器可见页面宽度和高度的比率
 * 图片源是一些摄影网站，比如500px、flickr、Pinterest等

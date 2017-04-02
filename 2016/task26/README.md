@@ -1,4 +1,4 @@
-##任务描述 [demo](https://kad0108.github.io/IFE/task26)
+## 任务描述 [demo](https://kad0108.github.io/IFE/2016/task26)
 
 * 如图（打开查看），创建一个虚拟宇宙，包括一个行星和飞船
 * 每个飞船由以下部分组成：
@@ -27,7 +27,7 @@
 * 指挥官并不知道自己的指令是不是真的传给了飞船，飞船的状态他是不知道的，他只能通过自己之前的操作来假设飞船当前的状态
 * 每个飞船通过信号接收器，接受到通过Mediator传达过来的指挥官的广播信号，但因为是广播信号，所以每个飞船能接受到指挥官发出给所有飞船的所有指令，因此需要通过读取信息判断这个指令是不是发给自己的
 
-##参考资料
+## 参考资料
 
 * [4 JavaScript Design Patterns You Should Know](https://scotch.io/bar-talk/4-javascript-design-patterns-you-should-know#module-design-pattern)：Module(模块),Prototype(原型),Observer(观察者),Singleton(单例)
 * [Learning JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#decoratorpatternjavascript)
@@ -35,7 +35,7 @@
 * [汤姆大叔讲JS](http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html)
 * [适配器、装饰者、工厂模式](http://www.adobe.com/cn/devnet/html5/articles/javascript-design-patterns-pt2-adapter-decorator-factory.html)
 
-##知识点
+## 知识点
 
 * transform-origin属性用来设置转换元素的旋转中心，相对于某个圆心运动的设置，自己的理解：![created by kad](css/transformOrigin.png)
 * margin:0 auto;元素居中失效原因：必须给居中元素设置宽度；元素不能脱离文档流。
