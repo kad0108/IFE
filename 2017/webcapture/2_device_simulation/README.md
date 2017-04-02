@@ -25,6 +25,8 @@ node task.js
 	|| document.body.clientWidth;
 	```
 
+* window.frames 属性返回窗口中所有命名的框架，一般用来获取窗口中的iframe
+
 * window.screen有关用户屏幕信息
 
 * window.location后去当前页面地址，并把浏览器重定向到新的页面
