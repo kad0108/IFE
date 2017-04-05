@@ -1,4 +1,33 @@
-## 知识点
+# Web Capture ———— Server
+
+### 任务 
+
+封装一个Node服务，收到请求后，启动phantomjs返回抓取json结果，Node服务将结果保存到MongoDB中。
+
+### 技术
+
+- Node
+- Mongoose
+- co
+- phantom
+
+### 运行
+
+```
+npm install 
+
+node index
+```
+
+GET请求传入keyword参数，接收响应结果
+
+![GET Request By PostMan](request.png)
+
+MongoDB存储抓取数据
+
+![MongoDB Storage](db.png)
+
+### 知识点
 
 * HTTP Request分为4个部分，URL、Method、Headers、Body。
 
