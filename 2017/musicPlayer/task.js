@@ -37,6 +37,9 @@ MusicPlayer.prototype = {
 		EventUtil.addEvent(this.$pre, 'click', this.pre.bind(this));
 		EventUtil.addEvent(this.$next, 'click', this.next.bind(this));
 		EventUtil.addEvent(this.audio, 'ended', this.next.bind(this));
+		EventUtil.addEvent(this.audio, 'canplay', () => {
+			this.$cover.classList.remove('rotate-pause');
+		})
 		this.sing(0);
 	},
 	setProgress: function(e){
@@ -66,11 +69,13 @@ MusicPlayer.prototype = {
 		this.audio.src = song.src;
 		document.title = song.title;
 	},
-	play: function(){
+	play: function(e){
 		this.audio.play();
 		this.$play.classList.add('hide');
 		this.$pause.classList.remove('hide');
-		this.$cover.classList.remove('rotate-pause');
+		if(e && e.target.className.indexOf('play') != -1){
+			this.$cover.classList.remove('rotate-pause');
+		}
 
 		// var playPromise = this.audio.play();
 		// var self = this;
@@ -85,7 +90,6 @@ MusicPlayer.prototype = {
 	},
 	sing: function(index){
 		if(index != this.playIndex) {
-			console.log('test');
 			this.$cover.classList.remove('rotate');
 			setTimeout(()=>{
 				this.$cover.classList.add('rotate');
