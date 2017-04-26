@@ -97,6 +97,7 @@ MusicPlayer.prototype = {
 			setTimeout(()=>{
 				this.$cover.classList.add('rotate');
 			}, 0);
+			this.$cover.classList.add('rotate-pause');
 		}
 		this.$playlistItem[this.playIndex].classList.remove('selected');
 		this.playIndex = index;
