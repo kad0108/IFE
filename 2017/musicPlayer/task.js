@@ -14,6 +14,7 @@ function MusicPlayer(){
 	this.$next = $('.next')[0];
 	this.playIndex = 0;
 	this.audio = new Audio();
+	this.deg = 0;
 	this.visualizer = new Visualizer(this.audio);
 	this.init();
 }
@@ -26,7 +27,7 @@ MusicPlayer.prototype = {
 		this.$playlistItem = $('.playlist-item');
 
 		EventUtil.addEvent(this.$playlist, 'click', (e) => {
-			this.sing(e.target.dataset.index);
+			this.sing(~~e.target.dataset.index);
 		})
 		EventUtil.addEvent(this.$play, 'click', this.play.bind(this));
 		EventUtil.addEvent(this.$pause, 'click', this.pause.bind(this));
@@ -35,6 +36,7 @@ MusicPlayer.prototype = {
 		EventUtil.addEvent(this.audio, 'timeupdate', this.updateProgress.bind(this));
 		EventUtil.addEvent(this.$pre, 'click', this.pre.bind(this));
 		EventUtil.addEvent(this.$next, 'click', this.next.bind(this));
+		EventUtil.addEvent(this.audio, 'ended', this.next.bind(this));
 		this.sing(0);
 	},
 	setProgress: function(e){
@@ -44,11 +46,10 @@ MusicPlayer.prototype = {
 	},
 	updateProgress: function(e){
 		var time = this.audio.currentTime;
-		var minute = parseInt(time / 60);
-		var second = parseInt(time % 60);
+		var minute = ~~(time / 60);
+		var second = ~~(time % 60);
 		if(second < 10) second = '0' + second;
 		this.$time.textContent = `${minute}:${second}`;
-		// console.log(time / this.audio.duration);
 		this.$progressVal.style.width = (time / this.audio.duration) * 100 + '%';
 	},
 	setVolume: function(e){
@@ -66,11 +67,10 @@ MusicPlayer.prototype = {
 		document.title = song.title;
 	},
 	play: function(){
-		
 		this.audio.play();
 		this.$play.classList.add('hide');
 		this.$pause.classList.remove('hide');
-
+		this.$cover.classList.remove('rotate-pause');
 
 		// var playPromise = this.audio.play();
 		// var self = this;
@@ -84,17 +84,24 @@ MusicPlayer.prototype = {
 		// }
 	},
 	sing: function(index){
+		if(index != this.playIndex) {
+			console.log('test');
+			this.$cover.classList.remove('rotate');
+			setTimeout(()=>{
+				this.$cover.classList.add('rotate');
+			}, 0);
+		}
 		this.$playlistItem[this.playIndex].classList.remove('selected');
 		this.playIndex = index;
 		this.$playlistItem[index].classList.add('selected');
 		this.load(index);
 		this.play();
-
 	},
 	pause: function(){
 		this.audio.pause();
 		this.$play.classList.remove('hide');
 		this.$pause.classList.add('hide');
+		this.$cover.classList.add('rotate-pause');
 	},
 	pre: function(){
 		if(this.playIndex == 0){

@@ -17,7 +17,7 @@ html, body{
 	justify-content: space-around;
 	align-items: center;
 }
-.playlist{
+.playlist-wrap{
 	width: 240px;
 	height: 320px;
 	overflow-y: auto;
@@ -25,7 +25,6 @@ html, body{
 	border: 1px solid #ccc;
 	padding: 5px;
 	border-radius: 5%;
-	z-index: 10;
 }
 .artist{
 	color: #0c73c2;
@@ -43,7 +42,6 @@ html, body{
 	border: 1px solid #ccc;
 	border-radius: 5%;
 	padding: 5px;
-	z-index: 10;
 }
 .operations{
 	margin-top: 10px;
@@ -112,6 +110,10 @@ html, body{
 	overflow: hidden;
 	border: 0;
 }
+.playlist-wrap, .player, .cover-wrap{
+	z-index: 10;
+}
+
 canvas{
 	display: block;
 	position: absolute;
@@ -127,7 +129,61 @@ canvas{
 	display: none;
 }
 
-.bar{
-	width: 10%;
-	height: 100%;
+.rotate{
+	animation: rotating 20s linear .3s infinite;
+	-webkit-animation: rotating 20s linear .3s infinite;
+}
+
+@-webkit-keyframes rotating{
+	from {
+		-webkit-transform:rotate(0deg);
+		transform:rotate(0deg)
+	}
+	to {
+		-webkit-transform:rotate(1turn);
+		transform:rotate(1turn)
+	}
+}
+@keyframes rotating{
+	from {
+		-webkit-transform:rotate(0deg);
+		transform:rotate(0deg)
+	}
+	to {
+		-webkit-transform:rotate(1turn);
+		transform:rotate(1turn)
+	}
+}
+
+.rotate-pause{
+	animation-play-state: paused;
+}
+
+@media screen and (max-width: 640px){
+	body{
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+	.container{
+		width: 100%;
+		height: auto;
+		display: flex;
+		flex-direction: column;
+	}
+	.playlist-wrap{
+		margin-top: 20px;
+	}
+	h1{
+		font-size: 30px;
+	}
+	.playlist-wrap, .player{
+		width: 100%;
+		margin-bottom: 20px;
+	}
+	.cover{
+		display: block;
+	}
+	canvas{
+		position: relative;
+	}
 }

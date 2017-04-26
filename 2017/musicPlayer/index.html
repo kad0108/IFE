@@ -3,13 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>MusicPlayer</title>
-	<meta http-equiv="Access-Control-Allow-Origin" content="http://m2.music.126.net/">
+	<!-- <meta http-equiv="Access-Control-Allow-Origin" content="http://m2.music.126.net/"> -->
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
 	<link rel="stylesheet" href="./static/css/bootstrap.min.css">
 	<link rel="stylesheet" href="./static/css/style.css">
 </head>
 <body>
 	<div class="container">
-		<ul class="playlist">hi</ul>
+		<div class="playlist-wrap"><ul class="playlist">hi</ul></div>
+
 		<div class="player">
 			<h1 class="title">title</h1>
 			<h5>歌手：<span class="artist">artist</span></h5>
@@ -37,7 +39,8 @@
 				<span class="next glyphicon glyphicon-step-forward" aria-hidden="true"></span>
 			</div>
 		</div>
-		<img class="cover" src=""></img>
+		
+		<div class="cover-wrap"><img class="cover rotate rotate-pause" src=""></img></div>
 	</div>
 	<canvas></canvas>
 	

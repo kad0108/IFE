@@ -30,7 +30,6 @@ function Visualizer(audio){
 Visualizer.prototype = {
 	constructor: this,
 	loop: function(){
-		// console.log(this.arr);
 		this.analyser.getByteFrequencyData(this.arr);
 		this.draw();
 		requestAnimationFrame(this.loop.bind(this));
