@@ -27,6 +27,7 @@ MusicPlayer.prototype = {
 		this.$playlistItem = $('.playlist-item');
 
 		EventUtil.addEvent(this.$playlist, 'click', (e) => {
+			this.$progressVal.style.width = '0%';
 			this.sing(~~e.target.dataset.index);
 		})
 		EventUtil.addEvent(this.$play, 'click', this.play.bind(this));
@@ -38,6 +39,7 @@ MusicPlayer.prototype = {
 		EventUtil.addEvent(this.$next, 'click', this.next.bind(this));
 		EventUtil.addEvent(this.audio, 'ended', this.next.bind(this));
 		EventUtil.addEvent(this.audio, 'canplay', () => {
+			console.log('load the data to play');
 			this.$cover.classList.remove('rotate-pause');
 		})
 		this.sing(0);
@@ -74,6 +76,7 @@ MusicPlayer.prototype = {
 		this.$play.classList.add('hide');
 		this.$pause.classList.remove('hide');
 		if(e && e.target.className.indexOf('play') != -1){
+			console.log('click play button to play');
 			this.$cover.classList.remove('rotate-pause');
 		}
 
