@@ -1,0 +1,133 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Microsoft YaHei";
+}
+html, body{
+	width: 100%;
+	height: 100%;
+	background-color: azure;
+}
+.container{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+.playlist{
+	width: 240px;
+	height: 320px;
+	overflow-y: auto;
+	color: #000;
+	border: 1px solid #ccc;
+	padding: 5px;
+	border-radius: 5%;
+	z-index: 10;
+}
+.artist{
+	color: #0c73c2;
+}
+.playlist-item{
+	cursor: pointer;
+	padding-bottom: 12px;
+}
+.playlist-item:hover{
+	color: orange;
+}
+.player{
+	width: 460px;
+	cursor: default;
+	border: 1px solid #ccc;
+	border-radius: 5%;
+	padding: 5px;
+	z-index: 10;
+}
+.operations{
+	margin-top: 10px;
+	position: relative;
+}
+.time{
+	display: inline-block;
+	height: 20px;
+	font-size: 12px;
+}
+.play, .pause, .pre, .next{
+	font-size: 24px;
+	cursor: pointer;
+	margin-left: 20px;
+}
+.volume-slider{
+	position: absolute;
+	right: 0;
+	display: inline-block;
+	overflow: hidden;
+}
+.volume-slider:hover>.volume{
+	display: inline-block;
+}
+.volume{
+	display: none;
+	transition: all .3s linear;
+	-webkit-transition: all .3s linear;
+	width: 60px;
+	height: 4px;
+	background-color: rgb(229, 229, 232);
+	padding-left: 2px;
+	cursor: pointer;
+	vertical-align: middle;
+}
+.volumebar{
+	background-color: rgb(151, 151, 151);
+	display: block;
+	cursor: pointer;
+	height: 100%;
+	width: 60%;
+}
+.progress{
+	margin: 10px 0;
+	width: 100%;
+	position: relative;
+	height: 6px;
+	background-color: #dadada;
+	cursor: pointer;
+}
+.progress>.progressbar{
+	display: block;
+	background-color: rgb(107, 189, 122);
+	height: 100%;
+	width: 0%;
+}
+.controllers{
+	width: 100%;
+}
+.cover{
+	display: inline-block;
+	width: 240px;
+	height: 240px;
+	border-radius: 50%;
+	background-color: #eee;
+	overflow: hidden;
+	border: 0;
+}
+canvas{
+	display: block;
+	position: absolute;
+	z-index: 0;
+	bottom: 0;
+}
+
+
+.selected{
+	color: green;
+}
+.hide{
+	display: none;
+}
+
+.bar{
+	width: 10%;
+	height: 100%;
+}

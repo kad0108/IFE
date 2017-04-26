@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<audio id="music" src="http://m2.music.126.net/7o5D4dA6271VktgawcbZFA==/18665309393829604.mp3"></audio>
+
+	<script>
+		var audioPromise = document.querySelector('#music').play();
+		console.log('begin');
+		audioPromise.then(function(){
+			console.log('ok');
+		}).catch(function(err){
+			console.log('rejected');
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MusicPlayer</title>
+	<meta http-equiv="Access-Control-Allow-Origin" content="http://m2.music.126.net/">
+	<link rel="stylesheet" href="./static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./static/css/style.css">
+</head>
+<body>
+	<div class="container">
+		<ul class="playlist">hi</ul>
+		<div class="player">
+			<h1 class="title">title</h1>
+			<h5>歌手：<span class="artist">artist</span></h5>
+			<div class="operations">
+				<span class="time"></span>
+				<!-- 音量图标 -->
+				<span class="volume-slider">
+					<span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
+					<span class="volume">
+						<span class="volumebar"></span>
+					</span>
+				</span>
+			</div>
+			<div class="progress">
+				<span class="progressbar"></span>
+			</div>
+			<div class="controllers">
+				<!-- 上一首 -->
+				<span class="pre glyphicon glyphicon-step-backward" aria-hidden="true"></span>
+				<!-- 播放 -->
+				<span class="play glyphicon glyphicon-play" aria-hidden="true"></span>
+				<!-- 暂停 -->
+				<span class="pause glyphicon glyphicon-pause" aria-hidden="true"></span>
+				<!-- 下一首 -->
+				<span class="next glyphicon glyphicon-step-forward" aria-hidden="true"></span>
+			</div>
+		</div>
+		<img class="cover" src=""></img>
+	</div>
+	<canvas></canvas>
+	
+	
+	<script src="./util.js"></script>
+	<script src="./playlist.js"></script>
+	<script src="./Visualizer.js"></script>
+	<script src="./task.js"></script>
+	<script>
+		var mp = new MusicPlayer();
+	</script>
+</body>
+</html>
