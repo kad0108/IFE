@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task02_036</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<table>
+		<tbody></tbody>
+	</table>
+	<div class="wrap">
+		<p>注: 支持方向键控制，需先点击页面，空格键修墙。<a href="javascript:;" onclick="showOrderDes();">指令详解</a></p>
+		<div id="orderDes" class="hide">
+			<p>BUILD: 修墙</p>
+			<p>BRU color: 粉刷墙</p>
+			<p>MOV TO x,y: 移动到坐标（x,y），不能进入墙</p>
+			<p>direction: lef / rig / top / bot</p>
+			<p>TUN direction: 转向指定方向</p>
+			<p>MOV direction x: 转向指定方向并沿该方向移动x步</p>
+			<p>TRA direction x: 向指定方向移动x步</p>
+			<p>GO x: 沿原来方向移动x步</p>
+		</div>
+		
+		<select id="size">
+			<option value="10" selected>10x10</option>
+			<option value="20">20x20</option>
+		</select>
+		<select id="duration">
+			<option value="500" selected>常速</option>
+			<option value="50">极速</option>
+		</select>
+		<button class="btn" type="button" id="execute">执行</button>
+		<button class="btn" type="button" id="reset">重置</button>
+		<button class="btn" type="button" id="build">随机生成墙</button>
+		<!-- <a class="btn" id="choofile" href="javascript:;">选择图片文件<input type="file" id="file" /></a> -->
+		<button class="btn" type="button" id="choofile" href="javascript:;">选择图片<input type="file" id="file" /></button>
+		<span id="filename"></span>
+		<br><br>
+		<ol class="line" id="line"></ol>
+		<!-- <textarea name="text" id="text">mov to 2,4</textarea> -->
+		<textarea name="text" id="text"></textarea>
+	</div>
+	<div id="square" style="display:none;"><img src="sq.png" alt="bot"></div>
+
+	<script src="js/base.js"></script>
+	<script>
+		var orderDes = $('orderDes');
+		function showOrderDes(){
+			if(orderDes.classList.contains('hide')) orderDes.classList.remove('hide');
+			else orderDes.classList.add('hide');
+		}
+	</script>
+	
+	<script src="js/table.js"></script>
+	<script src="js/square.js"></script>
+	<script src="js/imageReader.js"></script>
+	<script src="js/app.js"></script>
+
+</body>
+</html>

@@ -307,8 +307,8 @@ var util = {
 }
 
 var calendar = new Calendar($('#calendar'), function(){
-	if(this.type === 'single') alert('选中日期');
-	else alert('选中时间段');
+	if(this.type === 'single') alert('选中日期 ' + util.formateDate(this.curDate.now));
+	else alert('选中时间段 ' + util.formateDate(this.curDate.start) + '~' + util.formateDate(this.curDate.end));
 });
 calendar.init();
 

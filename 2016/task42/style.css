@@ -75,7 +75,7 @@ ul li{
 	border-radius: 5px;
 }
 ul li:hover{
-	background-color: purple;
+	background-color: plum;
 	color: white;
 }
 .calendar .day{
